@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Aman Kumar Gupta — Senior Technical Architect</title>
-<meta name="description" content="Senior Technical Architect with 17+ years building enterprise banking platforms. Currently architecting core finance and digital-banking systems for leading Singapore banks." />
+<meta name="description" content="Senior Technical Architect with 18+ years building enterprise banking platforms. Currently architecting core finance and digital-banking systems for leading Singapore banks." />
 <link rel="icon" type="image/jpeg" href="assets/avatar.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -43,7 +43,6 @@
   a:hover{text-decoration-color:var(--accent);color:var(--accent)}
 
   .mono{font-family:var(--mono-font);font-feature-settings:"zero","ss01"}}
-  .mono-tag{display:inline;font-family:var(--mono-font);font-size:.72em;letter-spacing:.04em;color:var(--muted);text-transform:uppercase}
 
   .container{max-width:var(--container);margin:0 auto;padding:0 32px}
 
@@ -62,11 +61,9 @@
   .brand{display:flex;align-items:baseline;gap:10px;text-decoration:none;color:inherit}
   .brand-mark{
     width:28px;height:28px;border-radius:50%;
-    background:var(--surface);
-    border:1px solid var(--line);
+    background:var(--surface);border:1px solid var(--line);
     display:inline-block;position:relative;top:1px;
-    overflow:hidden;
-    flex:0 0 28px;
+    overflow:hidden;flex:0 0 28px;
   }
   .brand-mark img{width:100%;height:100%;object-fit:cover;display:block}
   .brand-name{font-weight:600;letter-spacing:-.01em}
@@ -75,7 +72,6 @@
   .nav-links a{font-size:14px;color:var(--muted);text-decoration:none;position:relative;padding:6px 2px;transition:color .25s ease;z-index:1}
   .nav-links a:hover{color:var(--ink)}
   .nav-links a.active{color:var(--ink)}
-  /* sliding underline indicator */
   .nav-ind{
     position:absolute;bottom:0;left:0;height:2px;width:0;
     background:var(--accent);border-radius:2px;
@@ -88,9 +84,7 @@
     content:"";position:absolute;inset:-3px 0 auto 0;height:2px;
     background:var(--accent);filter:blur(4px);opacity:.5;
   }
-  @media (prefers-reduced-motion: reduce){
-    .nav-ind{transition:none}
-  }
+  @media (prefers-reduced-motion: reduce){.nav-ind{transition:none}}
   .nav-cta{
     font-family:var(--mono-font);font-size:12px;
     border:1px solid var(--line);padding:8px 12px;border-radius:999px;
@@ -107,67 +101,52 @@
     border-bottom:1px solid var(--line);
   }
   .hero-grid{
-    display:grid;grid-template-columns: 1.2fr 1fr; gap:64px; align-items:end;
+    display:grid;grid-template-columns:1.2fr 1fr;gap:64px;align-items:start;
   }
   .eyebrow{
     font-family:var(--mono-font);font-size:12px;color:var(--muted);
     letter-spacing:.08em;text-transform:uppercase;display:flex;align-items:center;gap:10px;
     margin-bottom:20px;
   }
-  .eyebrow::before{
-    content:"";width:24px;height:1px;background:var(--ink);display:inline-block;
-  }
+  .eyebrow::before{content:"";width:24px;height:1px;background:var(--ink);display:inline-block;}
   h1.headline{
-    font-family:var(--headline-font);
-    font-weight:600;
-    font-size:clamp(44px, 6.4vw, 96px);
-    line-height:.98;letter-spacing:-.025em;
-    margin:0 0 28px;
-    text-wrap:balance;
+    font-family:var(--headline-font);font-weight:600;
+    font-size:clamp(40px, 5.2vw, 76px);
+    line-height:1.04;letter-spacing:-.025em;
+    margin:0 0 28px;text-wrap:balance;
   }
   h1.headline em{font-style:normal;color:var(--accent);font-weight:600}
   h1.headline .slash{color:var(--muted);font-weight:300;margin:0 .04em}
   .hero-lede{
-    font-size:clamp(16px, 1.25vw, 19px);
-    color:var(--muted);max-width:54ch;
-    margin:0 0 36px;
-    text-wrap:pretty;
+    font-size:clamp(16px, 1.25vw, 19px);color:var(--muted);max-width:54ch;
+    margin:0 0 36px;text-wrap:pretty;
   }
   .hero-meta{
     display:flex;flex-wrap:wrap;gap:18px 28px;align-items:center;
     font-family:var(--mono-font);font-size:12px;color:var(--muted);
   }
   .hero-meta span b{color:var(--ink);font-weight:500}
-  .hero-side{
-    display:flex;flex-direction:column;gap:16px;
-  }
+  .hero-side{display:flex;flex-direction:column;gap:16px;}
 
   /* portrait card */
   .portrait-card{
-    position:relative;
-    background:var(--surface);
-    border:1px solid var(--line);
-    border-radius:4px;
-    overflow:hidden;
-    aspect-ratio:4/5;
+    position:relative;background:var(--surface);
+    border:1px solid var(--line);border-radius:4px;
+    overflow:hidden;aspect-ratio:4/5;
   }
   .portrait-card img{
     position:absolute;inset:0;width:100%;height:100%;
-    object-fit:cover;object-position:50% 28%;
-    display:block;
+    object-fit:cover;object-position:50% 28%;display:block;
   }
   .portrait-card::after{
     content:"";position:absolute;inset:0;pointer-events:none;
-    background:
-      linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(20,18,15,.55) 100%);
+    background:linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(20,18,15,.55) 100%);
   }
   .portrait-card .crosshair{
-    position:absolute;top:14px;left:14px;right:14px;
+    position:absolute;top:14px;left:14px;right:14px;z-index:1;
     display:flex;justify-content:space-between;align-items:center;
-    font-family:var(--mono-font);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.82);
-    text-shadow:0 1px 2px rgba(0,0,0,.4);
-    pointer-events:none;
-    z-index:1;
+    font-family:var(--mono-font);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;
+    color:rgba(255,255,255,.82);text-shadow:0 1px 2px rgba(0,0,0,.4);pointer-events:none;
   }
   .portrait-card .crosshair .live{display:inline-flex;align-items:center;gap:6px}
   .portrait-card .crosshair .live::before{
@@ -185,16 +164,12 @@
   .portrait-card .corner.bl{bottom:10px;left:10px;border-right:0;border-top:0}
   .portrait-card .corner.br{bottom:10px;right:10px;border-left:0;border-top:0}
   .portrait-card .caption{
-    position:absolute;left:16px;right:16px;bottom:14px;
+    position:absolute;left:16px;right:16px;bottom:14px;z-index:1;
     display:flex;justify-content:space-between;align-items:flex-end;gap:12px;
     font-family:var(--mono-font);font-size:10px;letter-spacing:.05em;text-transform:uppercase;
-    color:rgba(255,255,255,.92);
-    text-shadow:0 1px 3px rgba(0,0,0,.5);
-    z-index:1;
+    color:rgba(255,255,255,.92);text-shadow:0 1px 3px rgba(0,0,0,.5);
   }
-  .portrait-card .caption > span{
-    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;
-  }
+  .portrait-card .caption > span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;}
   .portrait-card .caption b{display:block;font-weight:500;font-size:10.5px;letter-spacing:.04em;margin-bottom:2px;white-space:nowrap}
   .portrait-card .caption .right{text-align:right;flex-shrink:0}
 
@@ -206,9 +181,7 @@
   }
   .hero-facts .row{
     display:flex;justify-content:space-between;gap:16px;
-    padding:10px 14px;
-    border-bottom:1px solid var(--line);
-    color:var(--muted);
+    padding:10px 14px;border-bottom:1px solid var(--line);color:var(--muted);
   }
   .hero-facts .row:last-child{border-bottom:0}
   .hero-facts .row b{color:var(--ink);font-weight:500;text-align:right}
@@ -216,25 +189,22 @@
   .hero-facts .row.head{background:var(--surface);color:var(--ink);text-transform:uppercase;letter-spacing:.06em;font-size:10.5px}
 
   /* ── SECTION HEADERS ───────────────────────────────── */
-  .section{padding:calc(72px + var(--section-gap)) 0 0}
+  .section{padding:64px 0}
   .section-head{
     display:grid;grid-template-columns:200px 1fr;gap:32px;
     margin-bottom:48px;align-items:baseline;
     padding-bottom:18px;border-bottom:1px solid var(--line);
   }
-  .section-num{
-    font-family:var(--mono-font);font-size:12px;color:var(--muted);
-    letter-spacing:.06em;text-transform:uppercase;
-  }
+  .section-num{font-family:var(--mono-font);font-size:12px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;}
   .section-num b{display:block;color:var(--ink);font-weight:500;font-size:13px;margin-top:4px}
   .section-title{
-    font-family:var(--headline-font);font-size:clamp(28px, 3.2vw, 40px);
+    font-family:var(--headline-font);font-size:clamp(26px, 2.9vw, 38px);
     font-weight:600;letter-spacing:-.02em;line-height:1.05;
-    margin:0;max-width:24ch;text-wrap:balance;
+    margin:0;max-width:none;white-space:nowrap;
   }
 
   /* ── ABOUT ─────────────────────────────────────────── */
-  .about-grid{display:grid;grid-template-columns: 200px 1fr 1fr; gap:40px;}
+  .about-grid{display:grid;grid-template-columns:200px 1fr 1fr;gap:40px;}
   .about-aside{font-family:var(--mono-font);font-size:12px;color:var(--muted);display:flex;flex-direction:column;gap:14px}
   .about-aside h4{margin:0 0 4px;color:var(--ink);font-weight:500;font-size:12px;letter-spacing:.05em;text-transform:uppercase}
   .about-aside ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px}
@@ -244,13 +214,9 @@
   /* ── METRICS STRIP ─────────────────────────────────── */
   .metrics{
     display:grid;grid-template-columns:repeat(4, 1fr);gap:0;
-    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
-    margin-top:64px;
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:64px;
   }
-  .metric{
-    padding:28px 24px;border-right:1px solid var(--line);
-    display:flex;flex-direction:column;gap:6px;
-  }
+  .metric{padding:28px 24px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:6px;}
   .metric:last-child{border-right:0}
   .metric-num{font-family:var(--headline-font);font-size:clamp(28px, 3vw, 40px);font-weight:600;letter-spacing:-.02em;line-height:1}
   .metric-num .unit{font-size:.5em;font-weight:400;color:var(--muted);margin-left:4px}
@@ -258,121 +224,58 @@
 
   /* ── WORK / CASE STUDIES ───────────────────────────── */
   .case{
-    display:grid;grid-template-columns: 1fr 1.1fr; gap:48px;
-    padding:48px 0;border-bottom:1px solid var(--line);
-    align-items:start;
+    display:grid;grid-template-columns:1fr 1.1fr;gap:48px;
+    padding:48px 0;border-bottom:1px solid var(--line);align-items:start;
   }
   .case:last-child{border-bottom:0}
   .case-meta{position:sticky;top:80px;display:flex;flex-direction:column;gap:14px}
-  .case-tag{
-    font-family:var(--mono-font);font-size:11px;color:var(--muted);
-    letter-spacing:.06em;text-transform:uppercase;
-    display:flex;justify-content:space-between;
-  }
+  .case-tag{font-family:var(--mono-font);font-size:11px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;display:flex;justify-content:space-between;}
   .case-tag .accent{color:var(--accent)}
   .case-title{font-family:var(--headline-font);font-size:clamp(24px, 2.4vw, 32px);font-weight:600;letter-spacing:-.02em;line-height:1.1;margin:0;text-wrap:balance}
   .case-summary{color:var(--muted);font-size:15.5px;margin:0;max-width:50ch}
   .case-stack{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
-  .chip{
-    font-family:var(--mono-font);font-size:11px;color:var(--ink);
-    background:var(--chip);padding:4px 8px;border-radius:4px;
-    border:1px solid var(--line);
-  }
+  .chip{font-family:var(--mono-font);font-size:11px;color:var(--ink);background:var(--chip);padding:4px 8px;border-radius:4px;border:1px solid var(--line);}
   .case-visual{
-    background:var(--surface);
-    border:1px solid var(--line);
-    border-radius:6px;
-    aspect-ratio:16/10;
-    position:relative;overflow:hidden;
+    background:var(--surface);border:1px solid var(--line);border-radius:6px;
+    aspect-ratio:16/10;position:relative;overflow:hidden;
     display:flex;align-items:center;justify-content:center;
   }
-  .case-visual.stripes{
-    background:
-      repeating-linear-gradient(135deg, var(--line) 0 1px, transparent 1px 14px),
-      var(--surface);
-  }
-  .case-visual-label{
-    font-family:var(--mono-font);font-size:11px;color:var(--muted);
-    background:var(--bg);padding:6px 10px;border:1px solid var(--line);border-radius:4px;
-    letter-spacing:.04em;
-  }
+  .case-visual.stripes{background:repeating-linear-gradient(135deg, var(--line) 0 1px, transparent 1px 14px), var(--surface);}
+  .case-visual-label{font-family:var(--mono-font);font-size:11px;color:var(--muted);background:var(--bg);padding:6px 10px;border:1px solid var(--line);border-radius:4px;letter-spacing:.04em;}
   .case-bullets{margin:16px 0 0;padding:0;list-style:none;display:grid;gap:10px}
-  .case-bullets li{
-    display:grid;grid-template-columns: 18px 1fr;gap:10px;
-    font-size:14.5px;color:var(--ink);align-items:start;
-  }
-  .case-bullets li::before{
-    content:"→";color:var(--accent);font-family:var(--mono-font);font-size:14px;line-height:1.5;
-  }
+  .case-bullets li{display:grid;grid-template-columns:18px 1fr;gap:10px;font-size:14.5px;color:var(--ink);align-items:start;}
+  .case-bullets li::before{content:"→";color:var(--accent);font-family:var(--mono-font);font-size:14px;line-height:1.5;}
   .case-bullets b{font-weight:600}
 
   /* Architecture diagram */
-  .arch{
-    --node-bg:var(--bg);
-    position:absolute;inset:0;padding:18px;
-    display:grid;grid-template-rows:auto 1fr auto;gap:14px;
-  }
+  .arch{--node-bg:var(--bg);position:absolute;inset:0;padding:18px;display:grid;grid-template-rows:auto 1fr auto;gap:14px;}
   .arch-row{display:flex;justify-content:space-between;align-items:center;gap:12px}
-  .arch-node{
-    background:var(--node-bg);border:1px solid var(--line);
-    border-radius:5px;padding:10px 12px;font-family:var(--mono-font);font-size:11.5px;
-    display:flex;flex-direction:column;gap:3px;min-width:0;flex:1;
-  }
+  .arch-node{background:var(--node-bg);border:1px solid var(--line);border-radius:5px;padding:10px 12px;font-family:var(--mono-font);font-size:11.5px;display:flex;flex-direction:column;gap:3px;min-width:0;flex:1;}
   .arch-node .lbl{color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.06em}
   .arch-node .val{color:var(--ink);font-weight:500;font-size:12.5px;letter-spacing:-.005em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .arch-node.accent{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
   .arch-node.accent .val{color:var(--accent)}
-  .arch-flow{
-    display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;align-items:center;
-    position:relative;
-  }
-  .arch-flow::before{
-    content:"";position:absolute;top:50%;left:8%;right:8%;height:1px;
-    background:repeating-linear-gradient(90deg, var(--ink) 0 4px, transparent 4px 9px);
-    opacity:.25;
-  }
+  .arch-flow{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;align-items:center;position:relative;}
+  .arch-flow::before{content:"";position:absolute;top:50%;left:8%;right:8%;height:1px;background:repeating-linear-gradient(90deg, var(--ink) 0 4px, transparent 4px 9px);opacity:.25;}
   .arch-bottom{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
-  .arch-pill{
-    font-family:var(--mono-font);font-size:10.5px;color:var(--muted);
-    background:var(--node-bg);border:1px solid var(--line);border-radius:999px;
-    padding:5px 10px;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
-  }
+  .arch-pill{font-family:var(--mono-font);font-size:10.5px;color:var(--muted);background:var(--node-bg);border:1px solid var(--line);border-radius:999px;padding:5px 10px;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 
   /* Metrics card visual */
-  .metrics-vis{
-    position:absolute;inset:0;padding:18px;
-    display:grid;grid-template-rows:auto 1fr auto;gap:12px;
-  }
+  .metrics-vis{position:absolute;inset:0;padding:18px;display:grid;grid-template-rows:auto 1fr auto;gap:12px;}
   .metrics-vis .head{display:flex;justify-content:space-between;font-family:var(--mono-font);font-size:11px;color:var(--muted)}
   .metrics-vis .head b{color:var(--ink);font-weight:500}
-  .chart{
-    position:relative;border:1px solid var(--line);border-radius:4px;background:var(--bg);
-    overflow:hidden;
-  }
-  .chart::before{
-    content:"";position:absolute;inset:0;
-    background:
-      linear-gradient(to right, var(--line) 1px, transparent 1px) 0 0/12.5% 100%,
-      linear-gradient(to top, var(--line) 1px, transparent 1px) 0 0/100% 25%;
-    opacity:.5;
-  }
+  .chart{position:relative;border:1px solid var(--line);border-radius:4px;background:var(--bg);overflow:hidden;}
+  .chart::before{content:"";position:absolute;inset:0;background:linear-gradient(to right, var(--line) 1px, transparent 1px) 0 0/12.5% 100%, linear-gradient(to top, var(--line) 1px, transparent 1px) 0 0/100% 25%;opacity:.5;}
   .chart svg{position:absolute;inset:0;width:100%;height:100%}
   .chart-legend{display:flex;gap:14px;font-family:var(--mono-font);font-size:11px;color:var(--muted);align-items:center}
   .chart-legend .swatch{width:14px;height:2px;display:inline-block;margin-right:6px;vertical-align:middle}
 
   /* Cluster visual */
-  .cluster{
-    position:absolute;inset:0;padding:18px;display:flex;flex-direction:column;gap:12px;
-  }
+  .cluster{position:absolute;inset:0;padding:18px;display:flex;flex-direction:column;gap:12px;}
   .cluster .row-h{display:flex;justify-content:space-between;align-items:center;font-family:var(--mono-font);font-size:11px;color:var(--muted)}
   .cluster .row-h b{color:var(--ink);font-weight:500}
-  .pods{
-    flex:1;display:grid;grid-template-columns:repeat(8, 1fr);grid-auto-rows:1fr;gap:6px;
-  }
-  .pod{
-    background:var(--bg);border:1px solid var(--line);border-radius:3px;
-    position:relative;
-  }
+  .pods{flex:1;display:grid;grid-template-columns:repeat(8, 1fr);grid-auto-rows:1fr;gap:6px;}
+  .pod{background:var(--bg);border:1px solid var(--line);border-radius:3px;}
   .pod.on{background:color-mix(in oklab, var(--accent) 18%, var(--bg));border-color:color-mix(in oklab, var(--accent) 40%, var(--line))}
   .pod.warm{background:color-mix(in oklab, #c2410c 18%, var(--bg));border-color:color-mix(in oklab, #c2410c 45%, var(--line))}
 
@@ -380,11 +283,7 @@
   .timeline{display:grid;grid-template-columns:200px 1fr;gap:40px}
   .timeline-aside{font-family:var(--mono-font);font-size:12px;color:var(--muted)}
   .roles{display:flex;flex-direction:column;gap:0}
-  .role{
-    display:grid;grid-template-columns: 180px 1fr 1fr;gap:32px;
-    padding:28px 0;border-top:1px solid var(--line);
-    align-items:start;
-  }
+  .role{display:grid;grid-template-columns:180px 1fr 1fr;gap:32px;padding:28px 0;border-top:1px solid var(--line);align-items:start;}
   .role:last-child{border-bottom:1px solid var(--line)}
   .role-when{font-family:var(--mono-font);font-size:12.5px;color:var(--muted);line-height:1.5}
   .role-when b{display:block;color:var(--ink);font-weight:500;letter-spacing:-.01em}
@@ -398,30 +297,14 @@
   /* ── SKILLS ────────────────────────────────────────── */
   .skills-grid{display:grid;grid-template-columns:200px 1fr;gap:40px}
   .skills{display:grid;grid-template-columns:repeat(3, 1fr);gap:0;border-top:1px solid var(--line)}
-  .skill-col{
-    border-right:1px solid var(--line);
-    border-bottom:1px solid var(--line);
-    padding:24px 24px 28px;
-    display:flex;flex-direction:column;gap:14px;
-  }
+  .skill-col{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:24px 24px 28px;display:flex;flex-direction:column;gap:14px;}
   .skill-col:nth-child(3n){border-right:0}
-  .skill-col h4{
-    margin:0;font-family:var(--mono-font);font-size:11px;color:var(--muted);
-    letter-spacing:.08em;text-transform:uppercase;
-    display:flex;justify-content:space-between;
-  }
+  .skill-col h4{margin:0;font-family:var(--mono-font);font-size:11px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;display:flex;justify-content:space-between;}
   .skill-col h4 .num{color:var(--accent)}
   .skill-list{list-style:none;padding:0;margin:0;display:grid;gap:8px}
-  .skill-list li{
-    display:grid;grid-template-columns:1fr auto;gap:12px;
-    font-size:14px;color:var(--ink);align-items:center;
-    padding:6px 0;border-bottom:1px dashed var(--line);
-  }
+  .skill-list li{display:grid;grid-template-columns:1fr auto;gap:12px;font-size:14px;color:var(--ink);align-items:center;padding:6px 0;border-bottom:1px dashed var(--line);}
   .skill-list li:last-child{border-bottom:0}
-  .skill-list .level{
-    font-family:var(--mono-font);font-size:10.5px;color:var(--muted);
-    display:flex;gap:3px;
-  }
+  .skill-list .level{font-family:var(--mono-font);font-size:10.5px;color:var(--muted);display:flex;gap:3px;}
   .level i{width:8px;height:8px;border:1px solid var(--line);border-radius:1px;display:inline-block}
   .level i.on{background:var(--ink);border-color:var(--ink)}
   .level i.accent{background:var(--accent);border-color:var(--accent)}
@@ -430,7 +313,7 @@
   .writing{display:grid;grid-template-columns:200px 1fr;gap:40px}
   .posts{display:flex;flex-direction:column;border-top:1px solid var(--line)}
   .post{
-    display:grid;grid-template-columns: 100px 1fr 180px 30px;gap:24px;
+    display:grid;grid-template-columns:100px 1fr 180px 30px;gap:24px;
     padding:22px 0;align-items:center;border-bottom:1px solid var(--line);
     text-decoration:none;color:inherit;
   }
@@ -439,40 +322,75 @@
   .post-cat{font-family:var(--mono-font);font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
   .post-arrow{font-family:var(--mono-font);color:var(--muted);text-align:right}
 
+  /* ── HOBBIES ───────────────────────────────────────── */
+  .hobbies-grid{display:grid;grid-template-columns:200px 1fr;gap:40px}
+  .hobby-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--section-gap)}
+  .hobby{
+    position:relative;border:1px solid var(--line);border-radius:10px;
+    background:var(--bg);overflow:hidden;
+    display:flex;flex-direction:column;
+    transition:transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease, border-color .35s ease;
+  }
+  .hobby:hover{transform:translateY(-4px);border-color:color-mix(in oklab, var(--accent) 45%, var(--line));box-shadow:0 18px 40px -24px color-mix(in oklab, var(--accent) 60%, transparent)}
+  .hobby-scene{position:relative;height:170px;overflow:hidden;border-bottom:1px solid var(--line)}
+  .hobby-tag{
+    position:absolute;top:12px;left:12px;z-index:3;
+    font-family:var(--mono-font);font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;
+    color:var(--ink);background:var(--bg);border:1px solid var(--line);
+    padding:4px 9px;border-radius:999px;
+  }
+  .hobby-body{padding:22px 22px 24px;display:flex;flex-direction:column;gap:10px;flex:1}
+  .hobby-body h3{margin:0;font-family:var(--headline-font);font-size:22px;font-weight:600;letter-spacing:-.01em}
+  .hobby-body p{margin:0;color:var(--muted);font-size:14.5px;line-height:1.6}
+  .hobby-meta{margin-top:auto;display:flex;gap:6px;flex-wrap:wrap;padding-top:6px}
+
+  /* cricket scene */
+  .sc-cricket{background:radial-gradient(120% 90% at 50% 120%, color-mix(in oklab, var(--accent) 26%, var(--surface)) 0%, var(--surface) 60%)}
+  .sc-cricket .field-line{position:absolute;left:0;right:0;bottom:34px;height:1px;background:color-mix(in oklab, var(--ink) 18%, transparent)}
+  .sc-cricket .pitch{position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:46px;height:120px;background:color-mix(in oklab, var(--accent) 16%, var(--bg));border-left:1px solid var(--line);border-right:1px solid var(--line);opacity:.7}
+  .sc-cricket .stumps{position:absolute;left:50%;bottom:34px;transform:translateX(-50%);width:22px;height:30px;background:repeating-linear-gradient(90deg, var(--ink) 0 2px, transparent 2px 9px);opacity:.8}
+  .sc-cricket .ball{position:absolute;width:14px;height:14px;border-radius:50%;background:radial-gradient(circle at 35% 30%, #e26d5c, #9e2a2b);box-shadow:0 0 0 1px color-mix(in oklab, #9e2a2b 60%, transparent);top:40px;left:30px;animation:ballArc 3.2s ease-in-out infinite}
+  .sc-cricket .ball::after{content:"";position:absolute;inset:0;border-radius:50%;border-top:1px solid rgba(255,255,255,.6);transform:rotate(35deg)}
+  @keyframes ballArc{0%{top:48px;left:24px;transform:scale(.8)}45%{top:18px;left:48%}50%{top:16px;left:50%;transform:scale(1.05)}90%{top:64px;left:80%}100%{top:48px;left:24px;transform:scale(.8)}}
+  .sc-cricket .bat{position:absolute;right:30px;bottom:36px;width:8px;height:54px;border-radius:4px;background:linear-gradient(var(--ink), color-mix(in oklab, var(--ink) 60%, var(--surface)));transform-origin:bottom center;animation:swing 3.2s ease-in-out infinite}
+  @keyframes swing{0%,40%{transform:rotate(28deg)}55%{transform:rotate(-26deg)}100%{transform:rotate(28deg)}}
+
+  /* tourism scene */
+  .sc-travel{background:linear-gradient(180deg, color-mix(in oklab, var(--accent) 22%, var(--surface)) 0%, var(--surface) 78%)}
+  .sc-travel .sun{position:absolute;top:26px;right:38px;width:42px;height:42px;border-radius:50%;background:radial-gradient(circle at 50% 50%, color-mix(in oklab, var(--accent) 70%, #ffd27a), color-mix(in oklab, var(--accent) 40%, transparent));box-shadow:0 0 30px color-mix(in oklab, var(--accent) 50%, transparent)}
+  .sc-travel .mtn{position:absolute;bottom:0;width:0;height:0;border-style:solid}
+  .sc-travel .m1{left:24px;border-width:0 70px 96px 70px;border-color:transparent transparent color-mix(in oklab, var(--ink) 55%, var(--surface)) transparent}
+  .sc-travel .m2{left:120px;border-width:0 90px 120px 90px;border-color:transparent transparent color-mix(in oklab, var(--ink) 38%, var(--surface)) transparent}
+  .sc-travel .cap{position:absolute;bottom:84px;left:150px;width:0;height:0;border-style:solid;border-width:0 30px 36px 30px;border-color:transparent transparent color-mix(in oklab, #fff 70%, var(--surface)) transparent;opacity:.85}
+  .sc-travel .cloud{position:absolute;height:12px;border-radius:999px;background:color-mix(in oklab, #fff 75%, var(--surface));opacity:.8}
+  .sc-travel .c1{top:40px;left:-40px;width:54px;animation:drift 12s linear infinite}
+  .sc-travel .c2{top:64px;left:-80px;width:38px;animation:drift 9s linear infinite 1.5s}
+  @keyframes drift{from{transform:translateX(0)}to{transform:translateX(340px)}}
+  .sc-travel .plane{position:absolute;top:30px;left:-30px;font-family:var(--mono-font);color:var(--ink);font-size:15px;animation:fly 7s linear infinite}
+  @keyframes fly{from{transform:translate(0,0)}to{transform:translate(360px,-10px)}}
+  @media (prefers-reduced-motion: reduce){
+    .sc-cricket .ball,.sc-cricket .bat,.sc-travel .cloud,.sc-travel .plane{animation:none}
+  }
+
   /* ── CONTACT / FOOTER ──────────────────────────────── */
-  .contact{
-    margin-top:calc(72px + var(--section-gap));
-    border-top:1px solid var(--line);
-    background:var(--surface);
-  }
-  .contact-inner{
-    max-width:var(--container);margin:0 auto;padding:80px 32px 32px;
-    display:grid;grid-template-columns: 1fr 1fr;gap:64px;align-items:end;
-  }
-  .contact h2{
-    font-family:var(--headline-font);font-size:clamp(40px, 5vw, 72px);
-    font-weight:600;letter-spacing:-.025em;line-height:1;margin:0 0 24px;text-wrap:balance;
-  }
+  .contact{margin-top:0;border-top:1px solid var(--line);background:var(--surface);}
+  .contact-inner{max-width:var(--container);margin:0 auto;padding:80px 32px 32px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:end;}
+  .contact h2{font-family:var(--headline-font);font-size:clamp(40px, 5vw, 72px);font-weight:600;letter-spacing:-.025em;line-height:1;margin:0 0 24px;text-wrap:balance;}
   .contact h2 em{font-style:normal;color:var(--accent)}
   .contact-side{display:flex;flex-direction:column;gap:14px;font-family:var(--mono-font);font-size:13px}
   .contact-side a{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px solid var(--line);text-decoration:none;color:var(--ink)}
   .contact-side a:hover{color:var(--accent)}
   .contact-side a .label{color:var(--muted)}
-  .footer{
-    max-width:var(--container);margin:0 auto;padding:24px 32px 40px;
-    display:flex;justify-content:space-between;align-items:center;gap:16px;
-    font-family:var(--mono-font);font-size:11.5px;color:var(--muted);
-    border-top:1px solid var(--line);
-  }
+  .footer{max-width:var(--container);margin:0 auto;padding:24px 32px 40px;display:flex;justify-content:space-between;align-items:center;gap:16px;font-family:var(--mono-font);font-size:11.5px;color:var(--muted);border-top:1px solid var(--line);}
   .footer .ip{display:flex;gap:14px;align-items:center}
   .footer .pulse{width:7px;height:7px;border-radius:50%;background:#3aa76d;box-shadow:0 0 0 3px color-mix(in oklab, #3aa76d 25%, transparent)}
 
   /* ── RESPONSIVE ────────────────────────────────────── */
   @media (max-width: 920px){
     .hero-grid{grid-template-columns:1fr;gap:40px}
-    .hero-side{padding-top:0}
     .section-head{grid-template-columns:1fr;gap:12px}
-    .about-grid,.timeline,.skills-grid,.writing{grid-template-columns:1fr;gap:24px}
+    .section-title{white-space:normal;text-wrap:balance}
+    .about-grid,.timeline,.skills-grid,.writing,.hobbies-grid{grid-template-columns:1fr;gap:24px}
     .case{grid-template-columns:1fr;gap:24px}
     .case-meta{position:static}
     .metrics{grid-template-columns:repeat(2,1fr)}
@@ -482,8 +400,9 @@
     .skill-col:nth-child(3n){border-right:1px solid var(--line)}
     .skill-col:nth-child(2n){border-right:0}
     .role{grid-template-columns:1fr;gap:14px}
-    .post{grid-template-columns: 80px 1fr 30px}
+    .post{grid-template-columns:80px 1fr 30px}
     .post-cat{display:none}
+    .hobby-cards{grid-template-columns:1fr}
     .contact-inner{grid-template-columns:1fr;gap:32px}
     .nav-links{display:none}
     .container{padding:0 22px}
@@ -508,6 +427,8 @@
       <a href="#experience">Experience</a>
       <a href="#skills">Skills</a>
       <a href="#writing">Background</a>
+      <a href="#hobbies">Hobbies</a>
+      <a href="#contact">Connect2Me</a>
       <span class="nav-ind" aria-hidden="true"></span>
     </div>
     <a class="nav-cta" href="#contact">
@@ -524,20 +445,19 @@
   <div class="container">
     <div class="hero-grid">
       <div>
-        <div class="eyebrow"><span>Aman Kumar Gupta</span><span class="mono">— Portfolio · 2025</span></div>
+        <div class="eyebrow"><span>Aman Kumar Gupta</span><span class="mono">— Portfolio · 2026</span></div>
         <h1 class="headline">
-          I architect resilient<br />
-          <em>banking&nbsp;platforms</em><span class="slash"> / </span><em>at&nbsp;scale</em>.
+          I architect resilient <em>banking&nbsp;platforms</em><span class="slash"> / </span><em>at&nbsp;scale</em>.
         </h1>
         <p class="hero-lede">
-          Senior Technical Architect with 17+ years building web and mobile
+          Senior Technical Architect with 18+ years building web and mobile
           enterprise systems — currently architecting core finance and digital-banking
           platforms onsite for leading Singapore banks. Deep in Java, Spring Boot,
           microservices and Python, now driving Generative-AI-assisted design and
           reverse-engineering with Claude Code and Glean.
         </p>
         <div class="hero-meta">
-          <span><b>17+ yrs</b> software engineering</span>
+          <span><b>18+ yrs</b> software engineering</span>
           <span><b>Banking</b> · Singapore</span>
           <span><b>Java</b> · Spring Boot · Python</span>
           <span><b>GenAI</b>-assisted delivery</span>
@@ -555,12 +475,12 @@
           </div>
           <figcaption class="caption">
             <span><b>Aman K. Gupta</b>Sr. Technical Architect</span>
-            <span class="right"><b>2025</b>Singapore</span>
+            <span class="right"><b>2026</b>Singapore</span>
           </figcaption>
         </figure>
 
         <div class="hero-facts">
-          <div class="row head"><span>Profile</span><span>2025</span></div>
+          <div class="row head"><span>Profile</span><span>2026</span></div>
           <div class="row"><span>Now</span><b>Sr. Technical Architect · DBS</b></div>
           <div class="row"><span>Focus</span><b>Finance platforms · GenAI</b></div>
           <div class="row"><span>Stack</span><b>Java · Spring Boot · Python</b></div>
@@ -575,13 +495,9 @@
 <section id="about" class="section">
   <div class="container">
     <div class="section-head">
-      <div class="section-num">
-        <span>§ 01</span>
-        <b>About</b>
-      </div>
+      <div class="section-num"><span>§ 01</span><b>About</b></div>
       <h2 class="section-title">Enterprise architect with a builder&rsquo;s instinct.</h2>
     </div>
-
     <div class="about-grid">
       <aside class="about-aside">
         <div>
@@ -610,95 +526,39 @@
           </ul>
         </div>
       </aside>
-
       <div class="about-prose">
-        <p>
-          I&rsquo;ve spent 17+ years turning complex enterprise requirements into
-          software that banks and global organisations run every day. For the last
-          six years that has meant architecting core finance and digital-banking
-          platforms onsite in Singapore — for <b>DBS</b> and <b>UOB</b> — where
-          correctness, security and uptime aren&rsquo;t features, they&rsquo;re the contract.
-        </p>
-        <p class="muted">
-          I lead squads of senior engineers through system design, HLDs and LLDs,
-          and delivery — building Spring Boot microservices, RESTful middleware and
-          batch pipelines that move huge volumes of financial data. I&rsquo;ve owned
-          customer onboarding (e-KYC, account opening, CIF, debit &amp; credit cards),
-          GL accounting-entry generation, and L3 production support.
-        </p>
+        <p>I&rsquo;ve spent 18+ years turning complex enterprise requirements into software that banks and global organisations run every day. For the last six years that has meant architecting core finance and digital-banking platforms onsite in Singapore — for <b>DBS</b> and <b>UOB</b> — where correctness, security and uptime aren&rsquo;t features, they&rsquo;re the contract.</p>
+        <p class="muted">I lead squads of senior engineers through system design, HLDs and LLDs, and delivery — building Spring Boot microservices, RESTful middleware and batch pipelines that move huge volumes of financial data. I&rsquo;ve owned customer onboarding (e-KYC, account opening, CIF, debit &amp; credit cards), GL accounting-entry generation, and L3 production support.</p>
       </div>
-
       <div class="about-prose">
-        <p>
-          More recently I&rsquo;ve been folding <b>Generative AI</b> into how we engineer
-          — using Claude Code and Glean to generate low-level designs and artefacts
-          from metadata, and to reverse-engineer legacy applications into clear,
-          maintainable documentation.
-        </p>
-        <p class="muted">
-          Alongside the build work I mentor developers, run code reviews, set
-          architecture standards, and act as the trusted technical point of contact
-          for client leadership across all levels.
-        </p>
-        <p class="mono" style="font-size:12px;color:var(--muted);margin-top:18px">
-          // currently: GLGEN at DBS — modernising accounting-entry<br />
-          // generation for a complex financial environment.
-        </p>
+        <p>More recently I&rsquo;ve been folding <b>Generative AI</b> into how we engineer — using Claude Code and Glean to generate low-level designs and artefacts from metadata, and to reverse-engineer legacy applications into clear, maintainable documentation.</p>
+        <p class="muted">Alongside the build work I mentor developers, run code reviews, set architecture standards, and act as the trusted technical point of contact for client leadership across all levels.</p>
+        <p class="mono" style="font-size:12px;color:var(--muted);margin-top:18px">// currently: GLGEN at DBS — modernising accounting-entry<br />// generation for a complex financial environment.</p>
       </div>
     </div>
-
     <div class="metrics" aria-label="Career numbers">
-      <div class="metric">
-        <div class="metric-num">17<span class="unit">+ yrs</span></div>
-        <div class="metric-label">In software development</div>
-      </div>
-      <div class="metric">
-        <div class="metric-num">6<span class="unit">+ yrs</span></div>
-        <div class="metric-label">Architecting Singapore banking</div>
-      </div>
-      <div class="metric">
-        <div class="metric-num">4</div>
-        <div class="metric-label">Markets delivered · SG · MY · TH · ID</div>
-      </div>
-      <div class="metric">
-        <div class="metric-num">1</div>
-        <div class="metric-label">High Achiever Award · UOB</div>
-      </div>
+      <div class="metric"><div class="metric-num">18<span class="unit">+ yrs</span></div><div class="metric-label">In software development</div></div>
+      <div class="metric"><div class="metric-num">6<span class="unit">+ yrs</span></div><div class="metric-label">Architecting Singapore banking</div></div>
+      <div class="metric"><div class="metric-num">4</div><div class="metric-label">Markets delivered · SG · MY · TH · ID</div></div>
+      <div class="metric"><div class="metric-num">1</div><div class="metric-label">High Achiever Award · UOB</div></div>
     </div>
   </div>
 </section>
 
-<!-- WORK / CASE STUDIES -->
+<!-- WORK -->
 <section id="work" class="section">
   <div class="container">
     <div class="section-head">
-      <div class="section-num">
-        <span>§ 02</span>
-        <b>Selected work</b>
-      </div>
+      <div class="section-num"><span>§ 02</span><b>Selected work</b></div>
       <h2 class="section-title">Banking platforms, told as case studies.</h2>
     </div>
 
-    <!-- CASE 01 -->
     <article class="case">
       <div class="case-meta">
         <div class="case-tag"><span>Case · 01</span><span class="accent">2025 — present · DBS</span></div>
         <h3 class="case-title">GLGEN — modernising GL accounting-entry generation.</h3>
-        <p class="case-summary">
-          Leading a squad of senior engineers designing a high-performance
-          accounting-entry engine for DBS — generating ledger files and reports
-          for downstream systems, and replacing the duplication and drift of
-          legacy finance platforms.
-        </p>
-        <div class="case-stack">
-          <span class="chip">Python</span>
-          <span class="chip">Spring Boot</span>
-          <span class="chip">Spring Batch</span>
-          <span class="chip">Claude Code</span>
-          <span class="chip">Glean</span>
-          <span class="chip">Elastic</span>
-          <span class="chip">Grafana</span>
-        </div>
+        <p class="case-summary">Leading a squad of senior engineers designing a high-performance accounting-entry engine for DBS — generating ledger files and reports for downstream systems, and replacing the duplication and drift of legacy finance platforms.</p>
+        <div class="case-stack"><span class="chip">Python</span><span class="chip">Spring Boot</span><span class="chip">Spring Batch</span><span class="chip">Claude Code</span><span class="chip">Glean</span><span class="chip">Elastic</span><span class="chip">Grafana</span></div>
         <ul class="case-bullets">
           <li><span>Designed <b>HLDs &amp; LLDs</b> for GLGEN modules and led requirement-gathering across teams.</span></li>
           <li><span>Eliminates duplicate reference data and modernises <b>accounting-entry generation</b> for accuracy and scale.</span></li>
@@ -718,34 +578,17 @@
             <div class="arch-node"><span class="lbl">Out</span><span class="val">Reports</span></div>
             <div class="arch-node"><span class="lbl">Out</span><span class="val">Batch feed</span></div>
           </div>
-          <div class="arch-bottom">
-            <div class="arch-pill">Elastic</div>
-            <div class="arch-pill">Filebeat</div>
-            <div class="arch-pill">Grafana</div>
-            <div class="arch-pill">Jenkins</div>
-          </div>
+          <div class="arch-bottom"><div class="arch-pill">Elastic</div><div class="arch-pill">Filebeat</div><div class="arch-pill">Grafana</div><div class="arch-pill">Jenkins</div></div>
         </div>
       </div>
     </article>
 
-    <!-- CASE 02 -->
     <article class="case">
       <div class="case-meta">
         <div class="case-tag"><span>Case · 02</span><span class="accent">2019 — 2025 · UOB</span></div>
         <h3 class="case-title">Digital customer onboarding across three markets.</h3>
-        <p class="case-summary">
-          Architected the customer-onboarding middleware behind UOB&rsquo;s TMRW and
-          personal internet banking apps — a microservice platform onboarding retail
-          customers across Singapore, Malaysia and Thailand.
-        </p>
-        <div class="case-stack">
-          <span class="chip">Spring Boot</span>
-          <span class="chip">Apache Camel</span>
-          <span class="chip">IBM UMQ</span>
-          <span class="chip">React</span>
-          <span class="chip">Spring Batch</span>
-          <span class="chip">Splunk</span>
-        </div>
+        <p class="case-summary">Architected the customer-onboarding middleware behind UOB&rsquo;s TMRW and personal internet banking apps — a microservice platform onboarding retail customers across Singapore, Malaysia and Thailand.</p>
+        <div class="case-stack"><span class="chip">Spring Boot</span><span class="chip">Apache Camel</span><span class="chip">IBM UMQ</span><span class="chip">React</span><span class="chip">Spring Batch</span><span class="chip">Splunk</span></div>
         <ul class="case-bullets">
           <li><span>Online <b>e-KYC</b>, account &amp; CIF creation, and automated debit/credit card issuance.</span></li>
           <li><span><b>Facial recognition</b>, selfie liveness and ID-card authentication for retail customers.</span></li>
@@ -755,48 +598,25 @@
       </div>
       <div class="case-visual">
         <div class="metrics-vis" aria-hidden="true">
-          <div class="head">
-            <span><b>Onboarding</b> · e-KYC → account</span>
-            <span>SG · MY · TH</span>
-          </div>
+          <div class="head"><span><b>Onboarding</b> · e-KYC → account</span><span>SG · MY · TH</span></div>
           <div class="chart">
             <svg viewBox="0 0 400 160" preserveAspectRatio="none">
-              <polyline points="0,90 40,80 80,72 120,68 160,58 200,52 240,46 280,42 320,40 360,38 400,36"
-                fill="none" stroke="var(--accent)" stroke-width="2" />
-              <polyline points="0,110 40,108 80,100 120,96 160,82 200,76 240,66 280,58 320,52 360,46 400,42"
-                fill="none" stroke="currentColor" stroke-width="1.5" opacity=".85" />
-              <polyline points="0,135 40,134 80,133 120,131 160,132 200,130 240,131 280,129 320,128 360,128 400,127"
-                fill="none" stroke="currentColor" stroke-width="1" opacity=".35" stroke-dasharray="3 3" />
+              <polyline points="0,90 40,80 80,72 120,68 160,58 200,52 240,46 280,42 320,40 360,38 400,36" fill="none" stroke="var(--accent)" stroke-width="2" />
+              <polyline points="0,110 40,108 80,100 120,96 160,82 200,76 240,66 280,58 320,52 360,46 400,42" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".85" />
+              <polyline points="0,135 40,134 80,133 120,131 160,132 200,130 240,131 280,129 320,128 360,128 400,127" fill="none" stroke="currentColor" stroke-width="1" opacity=".35" stroke-dasharray="3 3" />
             </svg>
           </div>
-          <div class="chart-legend">
-            <span><i class="swatch" style="background:var(--accent)"></i>completed</span>
-            <span><i class="swatch" style="background:currentColor;opacity:.85"></i>approved</span>
-            <span><i class="swatch" style="background:currentColor;opacity:.35"></i>drop-off</span>
-          </div>
+          <div class="chart-legend"><span><i class="swatch" style="background:var(--accent)"></i>completed</span><span><i class="swatch" style="background:currentColor;opacity:.85"></i>approved</span><span><i class="swatch" style="background:currentColor;opacity:.35"></i>drop-off</span></div>
         </div>
       </div>
     </article>
 
-    <!-- CASE 03 -->
     <article class="case">
       <div class="case-meta">
         <div class="case-tag"><span>Case · 03</span><span class="accent">2019 — 2025 · UOB</span></div>
         <h3 class="case-title">SLA DCP — 24×7 virtual-account onboarding.</h3>
-        <p class="case-summary">
-          Built the middleware onboarding users of the Singapore Land Authority&rsquo;s
-          Digital Conveyancing Portal — online e-KYC, related-party creation and
-          virtual account opening with a contingency flow for round-the-clock
-          availability.
-        </p>
-        <div class="case-stack">
-          <span class="chip">Spring Boot</span>
-          <span class="chip">Apache Camel</span>
-          <span class="chip">IBM UMQ</span>
-          <span class="chip">React</span>
-          <span class="chip">IText</span>
-          <span class="chip">JBOSS</span>
-        </div>
+        <p class="case-summary">Built the middleware onboarding users of the Singapore Land Authority&rsquo;s Digital Conveyancing Portal — online e-KYC, related-party creation and virtual account opening with a contingency flow for round-the-clock availability.</p>
+        <div class="case-stack"><span class="chip">Spring Boot</span><span class="chip">Apache Camel</span><span class="chip">IBM UMQ</span><span class="chip">React</span><span class="chip">IText</span><span class="chip">JBOSS</span></div>
         <ul class="case-bullets">
           <li><span>Online <b>e-KYC</b>, related-party creation and virtual account opening.</span></li>
           <li><span><b>Contingency flow</b> and bulk virtual-account opening for <b>24×7</b> availability.</span></li>
@@ -806,10 +626,7 @@
       </div>
       <div class="case-visual">
         <div class="cluster" aria-hidden="true">
-          <div class="row-h">
-            <span><b>middleware</b> · dcp-prod</span>
-            <span>virtual accounts · 24×7</span>
-          </div>
+          <div class="row-h"><span><b>middleware</b> · dcp-prod</span><span>virtual accounts · 24×7</span></div>
           <div class="pods" id="podgrid"></div>
           <div class="row-h">
             <span><i style="width:8px;height:8px;background:color-mix(in oklab,var(--accent) 40%, var(--bg));display:inline-block;border-radius:1px;margin-right:6px;vertical-align:middle"></i>active</span>
@@ -820,23 +637,12 @@
       </div>
     </article>
 
-    <!-- CASE 04 -->
     <article class="case">
       <div class="case-meta">
         <div class="case-tag"><span>Case · 04</span><span class="accent">2019 — 2025 · UOB</span></div>
         <h3 class="case-title">Loan Origination — eligibility &amp; approval, two markets.</h3>
-        <p class="case-summary">
-          A microservice platform onboarding loan customers in Singapore and
-          Indonesia — online e-KYC, CIF reservation, and rules-based eligibility
-          and approval, integrated with national identity systems.
-        </p>
-        <div class="case-stack">
-          <span class="chip">Spring Boot</span>
-          <span class="chip">Apache Camel</span>
-          <span class="chip">Spring Batch</span>
-          <span class="chip">Jenkins</span>
-          <span class="chip">React</span>
-        </div>
+        <p class="case-summary">A microservice platform onboarding loan customers in Singapore and Indonesia — online e-KYC, CIF reservation, and rules-based eligibility and approval, integrated with national identity systems.</p>
+        <div class="case-stack"><span class="chip">Spring Boot</span><span class="chip">Apache Camel</span><span class="chip">Spring Batch</span><span class="chip">Jenkins</span><span class="chip">React</span></div>
         <ul class="case-bullets">
           <li><span>Rules-based <b>loan approval</b> from customer-supplied data and eligibility checks.</span></li>
           <li><span>Singapore <b>HDB</b> integration — online quotation and loan eligibility.</span></li>
@@ -848,7 +654,6 @@
         <div class="case-visual-label mono">diagram · loan origination flow</div>
       </div>
     </article>
-
   </div>
 </section>
 
@@ -856,97 +661,36 @@
 <section id="experience" class="section">
   <div class="container">
     <div class="section-head">
-      <div class="section-num">
-        <span>§ 03</span>
-        <b>Experience</b>
-      </div>
+      <div class="section-num"><span>§ 03</span><b>Experience</b></div>
       <h2 class="section-title">From enterprise Java to onsite banking architecture.</h2>
     </div>
-
     <div class="timeline">
       <aside class="timeline-aside">
         <div style="margin-bottom:8px;color:var(--ink);font-weight:500;letter-spacing:.05em;text-transform:uppercase;font-size:11px">Timeline</div>
-        <div>17+ years across enterprise software — from India to onsite roles in Singapore.</div>
+        <div>18+ years across enterprise software — from India to onsite roles in Singapore.</div>
         <div style="margin-top:14px">Full CV available on request — <a href="#contact">say hello</a>.</div>
       </aside>
-
       <div class="roles">
-
         <div class="role">
-          <div class="role-when">
-            <b>2025 — Present</b>
-            <span>onsite</span>
-          </div>
-          <div class="role-where">
-            <h3>Senior Technical Architect / System Analyst</h3>
-            <div class="co">DBS Bank, Singapore · via NTT Singapore</div>
-            <div class="loc">Singapore · onsite</div>
-          </div>
-          <div class="role-body">
-            <p>Lead a squad of senior engineers designing high-performance digital apps exposing REST services and batch processing for the GLGEN finance modules.</p>
-            <p class="muted">Author HLDs &amp; LLDs, drive GenAI-assisted design and reverse engineering with Claude Code &amp; Glean, and run L3 BAU support with Elastic-based log analysis.</p>
-            <div class="role-stack">
-              <span class="chip">Python</span><span class="chip">Spring Boot</span><span class="chip">Elastic</span><span class="chip">Grafana</span><span class="chip">GenAI</span>
-            </div>
-          </div>
+          <div class="role-when"><b>2025 — Present</b><span>onsite</span></div>
+          <div class="role-where"><h3>Senior Technical Architect / System Analyst</h3><div class="co">DBS Bank, Singapore · via NTT Singapore</div><div class="loc">Singapore · onsite</div></div>
+          <div class="role-body"><p>Lead a squad of senior engineers designing high-performance digital apps exposing REST services and batch processing for the GLGEN finance modules.</p><p class="muted">Author HLDs &amp; LLDs, drive GenAI-assisted design and reverse engineering with Claude Code &amp; Glean, and run L3 BAU support with Elastic-based log analysis.</p><div class="role-stack"><span class="chip">Python</span><span class="chip">Spring Boot</span><span class="chip">Elastic</span><span class="chip">Grafana</span><span class="chip">GenAI</span></div></div>
         </div>
-
         <div class="role">
-          <div class="role-when">
-            <b>2019 — 2025</b>
-            <span>onsite</span>
-          </div>
-          <div class="role-where">
-            <h3>Senior Technical Manager</h3>
-            <div class="co">United Overseas Bank, Singapore · via HCL</div>
-            <div class="loc">Singapore · onsite</div>
-          </div>
-          <div class="role-body">
-            <p>Led multiple squads building UOB&rsquo;s TMRW &amp; personal internet banking — customer onboarding, middleware and RESTful services across SG, MY, TH and ID.</p>
-            <p class="muted">Mentored developers, ran code reviews and architecture standards, and was the trusted single point of contact for client leadership. Earned the High Achiever Award.</p>
-            <div class="role-stack">
-              <span class="chip">Spring Boot</span><span class="chip">Apache Camel</span><span class="chip">IBM UMQ</span><span class="chip">React</span><span class="chip">Splunk</span>
-            </div>
-          </div>
+          <div class="role-when"><b>2019 — 2025</b><span>onsite</span></div>
+          <div class="role-where"><h3>Senior Technical Manager</h3><div class="co">United Overseas Bank, Singapore · via HCL</div><div class="loc">Singapore · onsite</div></div>
+          <div class="role-body"><p>Led multiple squads building UOB&rsquo;s TMRW &amp; personal internet banking — customer onboarding, middleware and RESTful services across SG, MY, TH and ID.</p><p class="muted">Mentored developers, ran code reviews and architecture standards, and was the trusted single point of contact for client leadership. Earned the High Achiever Award.</p><div class="role-stack"><span class="chip">Spring Boot</span><span class="chip">Apache Camel</span><span class="chip">IBM UMQ</span><span class="chip">React</span><span class="chip">Splunk</span></div></div>
         </div>
-
         <div class="role">
-          <div class="role-when">
-            <b>2010 — 2018</b>
-            <span>India</span>
-          </div>
-          <div class="role-where">
-            <h3>Team Lead · then Project Manager</h3>
-            <div class="co">Accenture → Cognizant, India</div>
-            <div class="loc">India</div>
-          </div>
-          <div class="role-body">
-            <p>Led delivery across global clients — Channel4 UK (MINT ad-sales), JP Morgan (ATS Payments), Deutsche Post DHL (ODS) and Cal-HEERS US healthcare.</p>
-            <p class="muted">Domain-driven microservices, Spring MVC, SOA and web-service integration at enterprise scale.</p>
-            <div class="role-stack">
-              <span class="chip">Java</span><span class="chip">Spring MVC</span><span class="chip">SOA</span><span class="chip">Web Services</span>
-            </div>
-          </div>
+          <div class="role-when"><b>2010 — 2018</b><span>India</span></div>
+          <div class="role-where"><h3>Team Lead · then Project Manager</h3><div class="co">Accenture → Cognizant, India</div><div class="loc">India</div></div>
+          <div class="role-body"><p>Led delivery across global clients — Channel4 UK (MINT ad-sales), JP Morgan (ATS Payments), Deutsche Post DHL (ODS) and Cal-HEERS US healthcare.</p><p class="muted">Domain-driven microservices, Spring MVC, SOA and web-service integration at enterprise scale.</p><div class="role-stack"><span class="chip">Java</span><span class="chip">Spring MVC</span><span class="chip">SOA</span><span class="chip">Web Services</span></div></div>
         </div>
-
         <div class="role">
-          <div class="role-when">
-            <b>2007 — 2010</b>
-            <span>India</span>
-          </div>
-          <div class="role-where">
-            <h3>Java Developer</h3>
-            <div class="co">TS Infotech · Mann-India Technologies</div>
-            <div class="loc">India</div>
-          </div>
-          <div class="role-body">
-            <p>Built ERP and accounting products — GLOBE shipping ERP, Retail Maestro and a web-based Accounting API — the J2EE foundation the rest was built on.</p>
-            <div class="role-stack">
-              <span class="chip">Java</span><span class="chip">J2EE</span><span class="chip">EJB</span><span class="chip">JSF</span><span class="chip">Oracle</span>
-            </div>
-          </div>
+          <div class="role-when"><b>2007 — 2010</b><span>India</span></div>
+          <div class="role-where"><h3>Java Developer</h3><div class="co">TS Infotech · Mann-India Technologies</div><div class="loc">India</div></div>
+          <div class="role-body"><p>Built ERP and accounting products — GLOBE shipping ERP, Retail Maestro and a web-based Accounting API — the J2EE foundation the rest was built on.</p><div class="role-stack"><span class="chip">Java</span><span class="chip">J2EE</span><span class="chip">EJB</span><span class="chip">JSF</span><span class="chip">Oracle</span></div></div>
         </div>
-
       </div>
     </div>
   </div>
@@ -956,25 +700,16 @@
 <section id="skills" class="section">
   <div class="container">
     <div class="section-head">
-      <div class="section-num">
-        <span>§ 04</span>
-        <b>Skills &amp; stack</b>
-      </div>
-      <h2 class="section-title">A stack earned over 17 years.</h2>
+      <div class="section-num"><span>§ 04</span><b>Skills &amp; stack</b></div>
+      <h2 class="section-title">A stack earned over 18 years.</h2>
     </div>
-
     <div class="skills-grid">
       <aside class="timeline-aside">
         <div style="margin-bottom:8px;color:var(--ink);font-weight:500;letter-spacing:.05em;text-transform:uppercase;font-size:11px">Bench</div>
         <div>The tools and languages I&rsquo;ve built production systems with across banking, logistics and retail.</div>
-        <div class="mono" style="margin-top:18px;font-size:11px;color:var(--muted)">
-          ● expert &nbsp;&nbsp; ◐ working knowledge<br />
-          ○ exposure, would learn fast
-        </div>
+        <div class="mono" style="margin-top:18px;font-size:11px;color:var(--muted)">● expert &nbsp;&nbsp; ◐ working knowledge<br />○ exposure, would learn fast</div>
       </aside>
-
       <div class="skills">
-
         <div class="skill-col">
           <h4><span>Languages</span><span class="num">06</span></h4>
           <ul class="skill-list">
@@ -986,7 +721,6 @@
             <li><span>SQL</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="accent"></i><i></i></span></li>
           </ul>
         </div>
-
         <div class="skill-col">
           <h4><span>Frameworks</span><span class="num">07</span></h4>
           <ul class="skill-list">
@@ -999,7 +733,6 @@
             <li><span>IBM UMQ · ASP.Net</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i></i><i></i></span></li>
           </ul>
         </div>
-
         <div class="skill-col">
           <h4><span>Data</span><span class="num">03</span></h4>
           <ul class="skill-list">
@@ -1008,7 +741,6 @@
             <li><span>MS SQL Server</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="on"></i><i></i></span></li>
           </ul>
         </div>
-
         <div class="skill-col">
           <h4><span>DevOps &amp; CI/CD</span><span class="num">05</span></h4>
           <ul class="skill-list">
@@ -1019,7 +751,6 @@
             <li><span>Linux · Windows</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="accent"></i><i></i></span></li>
           </ul>
         </div>
-
         <div class="skill-col">
           <h4><span>Observability &amp; Quality</span><span class="num">06</span></h4>
           <ul class="skill-list">
@@ -1031,7 +762,6 @@
             <li><span>Confluence · JIRA · Visio</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="accent"></i><i></i></span></li>
           </ul>
         </div>
-
         <div class="skill-col">
           <h4><span>GenAI &amp; Practice</span><span class="num">05</span></h4>
           <ul class="skill-list">
@@ -1042,7 +772,6 @@
             <li><span>Agile · Scrum</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="accent"></i><i></i></span></li>
           </ul>
         </div>
-
       </div>
     </div>
   </div>
@@ -1052,57 +781,72 @@
 <section id="writing" class="section">
   <div class="container">
     <div class="section-head">
-      <div class="section-num">
-        <span>§ 05</span>
-        <b>Background &amp; education</b>
-      </div>
+      <div class="section-num"><span>§ 05</span><b>Background &amp; education</b></div>
       <h2 class="section-title">Earlier ground covered.</h2>
     </div>
-
     <div class="writing">
       <aside class="timeline-aside">
         <div style="margin-bottom:8px;color:var(--ink);font-weight:500;letter-spacing:.05em;text-transform:uppercase;font-size:11px">Earlier</div>
         <div>A decade of enterprise delivery across the UK, US, Germany and beyond — plus where it all started.</div>
         <div class="mono" style="margin-top:18px;font-size:11.5px;color:var(--muted)">Singapore · Indian national</div>
       </aside>
-
       <div class="posts">
-        <div class="post">
-          <span class="post-date mono">Edu · 2006</span>
-          <span class="post-title">MCA — Master of Computer Applications</span>
-          <span class="post-cat mono">IGNOU, New Delhi</span>
-          <span class="post-arrow mono">·</span>
-        </div>
-        <div class="post">
-          <span class="post-date mono">Edu · 2001</span>
-          <span class="post-title">BSc — Bachelor of Science</span>
-          <span class="post-cat mono">Vinoba Bhave University</span>
-          <span class="post-arrow mono">·</span>
-        </div>
-        <div class="post">
-          <span class="post-date mono">Award</span>
-          <span class="post-title">High Achiever Award — most impact to team &amp; colleagues</span>
-          <span class="post-cat mono">UOB</span>
-          <span class="post-arrow mono">★</span>
-        </div>
-        <div class="post">
-          <span class="post-date mono">Channel4 · UK</span>
-          <span class="post-title">MINT — core ad-sales platform, DDD microservices</span>
-          <span class="post-cat mono">Media</span>
-          <span class="post-arrow mono">·</span>
-        </div>
-        <div class="post">
-          <span class="post-date mono">JP Morgan · US</span>
-          <span class="post-title">ATS Payments — file import &amp; print export</span>
-          <span class="post-cat mono">Banking</span>
-          <span class="post-arrow mono">·</span>
-        </div>
-        <div class="post">
-          <span class="post-date mono">DHL · DE</span>
-          <span class="post-title">ODS — shipment-data integration platform</span>
-          <span class="post-cat mono">Logistics</span>
-          <span class="post-arrow mono">·</span>
-        </div>
+        <div class="post"><span class="post-date mono">Edu · 2006</span><span class="post-title">MCA — Master of Computer Applications</span><span class="post-cat mono">IGNOU, New Delhi</span><span class="post-arrow mono">·</span></div>
+        <div class="post"><span class="post-date mono">Edu · 2001</span><span class="post-title">BSc — Bachelor of Science</span><span class="post-cat mono">Vinoba Bhave University</span><span class="post-arrow mono">·</span></div>
+        <div class="post"><span class="post-date mono">Award</span><span class="post-title">High Achiever Award — most impact to team &amp; colleagues</span><span class="post-cat mono">UOB</span><span class="post-arrow mono">★</span></div>
+        <div class="post"><span class="post-date mono">Channel4 · UK</span><span class="post-title">MINT — core ad-sales platform, DDD microservices</span><span class="post-cat mono">Media</span><span class="post-arrow mono">·</span></div>
+        <div class="post"><span class="post-date mono">JP Morgan · US</span><span class="post-title">ATS Payments — file import &amp; print export</span><span class="post-cat mono">Banking</span><span class="post-arrow mono">·</span></div>
+        <div class="post"><span class="post-date mono">DHL · DE</span><span class="post-title">ODS — shipment-data integration platform</span><span class="post-cat mono">Logistics</span><span class="post-arrow mono">·</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOBBIES -->
+<section id="hobbies" class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num"><span>§ 06</span><b>Hobbies &amp; interests</b></div>
+      <h2 class="section-title">Life beyond the architecture diagram.</h2>
+    </div>
+    <div class="hobbies-grid">
+      <aside class="timeline-aside">
+        <div style="margin-bottom:8px;color:var(--ink);font-weight:500;letter-spacing:.05em;text-transform:uppercase;font-size:11px">Off the clock</div>
+        <div>What keeps me sharp, social and curious when I&rsquo;m not designing systems.</div>
+      </aside>
+      <div class="hobby-cards">
+        <article class="hobby">
+          <div class="hobby-scene sc-cricket" aria-hidden="true">
+            <span class="hobby-tag">On the pitch</span>
+            <span class="field-line"></span>
+            <span class="pitch"></span>
+            <span class="stumps"></span>
+            <span class="bat"></span>
+            <span class="ball"></span>
+          </div>
+          <div class="hobby-body">
+            <h3>Playing cricket</h3>
+            <p>Weekends usually mean a bat in hand. Cricket is my reset button — a game of patience, strategy and quick decisions under pressure, which feels surprisingly close to the day job. I love the team spirit and the long, focused innings.</p>
+            <div class="hobby-meta"><span class="chip">Batting</span><span class="chip">Weekend league</span><span class="chip">Team sport</span></div>
+          </div>
+        </article>
+        <article class="hobby">
+          <div class="hobby-scene sc-travel" aria-hidden="true">
+            <span class="hobby-tag">On the road</span>
+            <span class="sun"></span>
+            <span class="cloud c1"></span>
+            <span class="cloud c2"></span>
+            <span class="plane">✈</span>
+            <span class="mtn m1"></span>
+            <span class="mtn m2"></span>
+            <span class="cap"></span>
+          </div>
+          <div class="hobby-body">
+            <h3>Tourism &amp; travel</h3>
+            <p>I&rsquo;m happiest exploring somewhere new — new cities, cultures, cuisines and landscapes. Living in Singapore puts the whole of Asia within reach, and every trip brings back a fresh perspective I carry into how I work and think.</p>
+            <div class="hobby-meta"><span class="chip">Exploring Asia</span><span class="chip">Culture &amp; food</span><span class="chip">Photography</span></div>
+          </div>
+        </article>
       </div>
     </div>
   </div>
@@ -1114,14 +858,10 @@
 <section id="contact" class="contact">
   <div class="contact-inner">
     <div>
-      <div class="eyebrow"><span>Get in touch</span><span class="mono">— § 06</span></div>
+      <div class="eyebrow"><span>Get in touch</span><span class="mono">— § 07</span></div>
       <h2>Let&rsquo;s build something <em>that&nbsp;lasts</em>.</h2>
-      <p style="color:var(--muted);max-width:46ch;margin:0">
-        Open to senior architect and technical leadership roles. Based in
-        Singapore. Quickest reply by email.
-      </p>
+      <p style="color:var(--muted);max-width:46ch;margin:0">Open to senior architect and technical leadership roles. Based in Singapore. Quickest reply by email.</p>
     </div>
-
     <div class="contact-side">
       <a href="mailto:kumaraman2006@gmail.com"><span class="label">Email</span><span>kumaraman2006@gmail.com&nbsp;↗</span></a>
       <a href="https://www.linkedin.com/in/aman-gupta-8b86834a/" target="_blank" rel="noopener noreferrer"><span class="label">LinkedIn</span><span>in/aman-gupta&nbsp;↗</span></a>
@@ -1130,13 +870,9 @@
       <a href="#contact"><span class="label">Location</span><span>Singapore&nbsp;· SGT</span></a>
     </div>
   </div>
-
   <div class="footer">
-    <div class="ip">
-      <span class="pulse"></span>
-      <span>Based in Singapore · SGT · UTC+8</span>
-    </div>
-    <div>© 2025 Aman Kumar Gupta · amankgupta.com</div>
+    <div class="ip"><span class="pulse"></span><span>Based in Singapore · SGT · UTC+8</span></div>
+    <div>© 2026 Aman Kumar Gupta · amankgupta.com</div>
   </div>
 </section>
 
@@ -1162,16 +898,14 @@
     if(!wrap) return;
     var ind   = wrap.querySelector('.nav-ind');
     var links = Array.prototype.slice.call(wrap.querySelectorAll('a'));
-    var sections = links.map(function(a){
-      return document.querySelector(a.getAttribute('href'));
-    });
+    var sections = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
     var current = links[0];
 
-    function moveTo(el, show){
+    function moveTo(el){
       if(!el || !ind) return;
       ind.style.width = el.offsetWidth + 'px';
       ind.style.transform = 'translateX(' + el.offsetLeft + 'px)';
-      if(show !== false) ind.classList.add('show');
+      ind.classList.add('show');
     }
     function setActive(el){
       if(!el) return;
