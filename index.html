@@ -27,13 +27,9 @@
   html{background:var(--bg);scroll-behavior:smooth}
   section[id], header[id], main > section{scroll-margin-top:84px}
   body{
-    background:var(--bg);
-    color:var(--ink);
-    font-family:var(--body-font);
-    font-size:16px;
-    line-height:1.55;
-    -webkit-font-smoothing:antialiased;
-    text-rendering:optimizeLegibility;
+    background:var(--bg);color:var(--ink);font-family:var(--body-font);
+    font-size:16px;line-height:1.55;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
     font-feature-settings:"ss01","ss02","cv11";
   }
 
@@ -62,27 +58,42 @@
   .brand-mark{
     width:28px;height:28px;border-radius:50%;
     background:var(--surface);border:1px solid var(--line);
-    display:inline-block;position:relative;top:1px;
-    overflow:hidden;flex:0 0 28px;
+    display:inline-block;position:relative;top:1px;overflow:hidden;flex:0 0 28px;
   }
   .brand-mark img{width:100%;height:100%;object-fit:cover;display:block}
   .brand-name{font-weight:600;letter-spacing:-.01em}
   .brand-sub{font-family:var(--mono-font);font-size:11px;color:var(--muted)}
   .nav-links{display:flex;gap:22px;align-items:center;position:relative}
-  .nav-links a{font-size:14px;color:var(--muted);text-decoration:none;position:relative;padding:6px 2px;transition:color .25s ease;z-index:1}
-  .nav-links a:hover{color:var(--ink)}
-  .nav-links a.active{color:var(--ink)}
+  .nav-links a{
+    font-size:14px;color:var(--muted);text-decoration:none;position:relative;
+    padding:6px 2px 6px 14px;transition:color .25s ease;z-index:1;
+  }
+  /* per-item color dot */
+  .nav-links a::before{
+    content:"";position:absolute;left:0;top:50%;width:7px;height:7px;border-radius:50%;
+    transform:translateY(-50%) scale(.78);
+    background:var(--c,var(--accent));opacity:.45;
+    transition:opacity .25s ease, transform .25s ease, box-shadow .25s ease;
+  }
+  .nav-links a:hover{color:var(--c,var(--ink))}
+  .nav-links a:hover::before{opacity:1;transform:translateY(-50%) scale(1)}
+  .nav-links a.active{color:var(--c,var(--ink));font-weight:500}
+  .nav-links a.active::before{
+    opacity:1;transform:translateY(-50%) scale(1);
+    box-shadow:0 0 0 4px color-mix(in oklab, var(--c,var(--accent)) 18%, transparent);
+  }
+  /* sliding underline — color follows active item */
   .nav-ind{
     position:absolute;bottom:0;left:0;height:2px;width:0;
-    background:var(--accent);border-radius:2px;
+    background:var(--ind-c,var(--accent));border-radius:2px;
     transform:translateX(0);
-    transition:transform .42s cubic-bezier(.6,.05,.2,1), width .42s cubic-bezier(.6,.05,.2,1), opacity .25s ease;
+    transition:transform .42s cubic-bezier(.6,.05,.2,1), width .42s cubic-bezier(.6,.05,.2,1), opacity .25s ease, background .3s ease;
     opacity:0;pointer-events:none;
   }
   .nav-ind.show{opacity:1}
   .nav-ind::after{
     content:"";position:absolute;inset:-3px 0 auto 0;height:2px;
-    background:var(--accent);filter:blur(4px);opacity:.5;
+    background:var(--ind-c,var(--accent));filter:blur(4px);opacity:.5;
   }
   @media (prefers-reduced-motion: reduce){.nav-ind{transition:none}}
   .nav-cta{
@@ -94,15 +105,32 @@
   .nav-cta:hover{border-color:var(--accent);color:var(--accent)}
   .nav-cta .dot{width:6px;height:6px;border-radius:50%;background:#3aa76d;box-shadow:0 0 0 3px color-mix(in oklab, #3aa76d 25%, transparent)}
 
+  /* ── BACK TO TOP ───────────────────────────────────── */
+  .to-top{
+    position:fixed;right:28px;bottom:28px;z-index:60;
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:var(--mono-font);font-size:12px;letter-spacing:.04em;
+    color:var(--ink);background:color-mix(in oklab, var(--surface) 97%, var(--bg));
+    backdrop-filter:blur(12px) saturate(140%);-webkit-backdrop-filter:blur(12px) saturate(140%);
+    border:1px solid var(--line);border-radius:999px;padding:10px 16px 10px 13px;cursor:pointer;
+    box-shadow:0 6px 20px -8px rgba(26,24,22,.3);
+    opacity:0;transform:translateY(14px) scale(.96);pointer-events:none;
+    transition:opacity .3s ease, transform .3s cubic-bezier(.34,1.56,.64,1), border-color .25s ease, color .25s ease;
+  }
+  .to-top.show{opacity:1;transform:translateY(0) scale(1);pointer-events:auto}
+  .to-top:hover{border-color:var(--accent);color:var(--accent)}
+  .to-top svg{width:14px;height:14px;transition:transform .25s ease}
+  .to-top:hover svg{transform:translateY(-2px)}
+  .to-top .tt-label{font-weight:500}
+  @media (prefers-reduced-motion: reduce){.to-top{transition:opacity .2s ease}}
+  @media (max-width:680px){
+    .to-top{right:16px;bottom:16px;padding:11px}
+    .to-top .tt-label{display:none}
+  }
+
   /* ── HERO ──────────────────────────────────────────── */
-  .hero{
-    padding:96px 0 72px;
-    position:relative;
-    border-bottom:1px solid var(--line);
-  }
-  .hero-grid{
-    display:grid;grid-template-columns:1.2fr 1fr;gap:64px;align-items:start;
-  }
+  .hero{padding:96px 0 72px;position:relative;border-bottom:1px solid var(--line);}
+  .hero-grid{display:grid;grid-template-columns:1.4fr .9fr;gap:64px;align-items:start;}
   .eyebrow{
     font-family:var(--mono-font);font-size:12px;color:var(--muted);
     letter-spacing:.08em;text-transform:uppercase;display:flex;align-items:center;gap:10px;
@@ -111,37 +139,20 @@
   .eyebrow::before{content:"";width:24px;height:1px;background:var(--ink);display:inline-block;}
   h1.headline{
     font-family:var(--headline-font);font-weight:600;
-    font-size:clamp(40px, 5.2vw, 76px);
-    line-height:1.04;letter-spacing:-.025em;
+    font-size:clamp(40px, 5.2vw, 76px);line-height:1.04;letter-spacing:-.025em;
     margin:0 0 28px;text-wrap:balance;
   }
   h1.headline em{font-style:normal;color:var(--accent);font-weight:600}
   h1.headline .slash{color:var(--muted);font-weight:300;margin:0 .04em}
-  .hero-lede{
-    font-size:clamp(16px, 1.25vw, 19px);color:var(--muted);max-width:54ch;
-    margin:0 0 36px;text-wrap:pretty;
-  }
-  .hero-meta{
-    display:flex;flex-wrap:wrap;gap:18px 28px;align-items:center;
-    font-family:var(--mono-font);font-size:12px;color:var(--muted);
-  }
+  .hero-lede{font-size:clamp(16px, 1.25vw, 19px);color:var(--muted);max-width:54ch;margin:0 0 36px;text-wrap:pretty;}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:18px 28px;align-items:center;font-family:var(--mono-font);font-size:12px;color:var(--muted);}
   .hero-meta span b{color:var(--ink);font-weight:500}
   .hero-side{display:flex;flex-direction:column;gap:16px;}
 
   /* portrait card */
-  .portrait-card{
-    position:relative;background:var(--surface);
-    border:1px solid var(--line);border-radius:4px;
-    overflow:hidden;aspect-ratio:4/5;
-  }
-  .portrait-card img{
-    position:absolute;inset:0;width:100%;height:100%;
-    object-fit:cover;object-position:50% 28%;display:block;
-  }
-  .portrait-card::after{
-    content:"";position:absolute;inset:0;pointer-events:none;
-    background:linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(20,18,15,.55) 100%);
-  }
+  .portrait-card{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:4px;overflow:hidden;aspect-ratio:4/5;}
+  .portrait-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 28%;display:block;}
+  .portrait-card::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(20,18,15,.55) 100%);}
   .portrait-card .crosshair{
     position:absolute;top:14px;left:14px;right:14px;z-index:1;
     display:flex;justify-content:space-between;align-items:center;
@@ -151,14 +162,10 @@
   .portrait-card .crosshair .live{display:inline-flex;align-items:center;gap:6px}
   .portrait-card .crosshair .live::before{
     content:"";width:7px;height:7px;border-radius:50%;background:#ff5b48;
-    box-shadow:0 0 0 3px rgba(255,91,72,.25);
-    animation:rec 1.6s steps(2) infinite;
+    box-shadow:0 0 0 3px rgba(255,91,72,.25);animation:rec 1.6s steps(2) infinite;
   }
   @keyframes rec{50%{opacity:.35}}
-  .portrait-card .corner{
-    position:absolute;width:18px;height:18px;border:1px solid rgba(255,255,255,.6);
-    pointer-events:none;z-index:1;
-  }
+  .portrait-card .corner{position:absolute;width:18px;height:18px;border:1px solid rgba(255,255,255,.6);pointer-events:none;z-index:1;}
   .portrait-card .corner.tl{top:10px;left:10px;border-right:0;border-bottom:0}
   .portrait-card .corner.tr{top:10px;right:10px;border-left:0;border-bottom:0}
   .portrait-card .corner.bl{bottom:10px;left:10px;border-right:0;border-top:0}
@@ -176,31 +183,32 @@
   .hero-facts{
     display:flex;flex-direction:column;gap:0;
     font-family:var(--mono-font);font-size:12px;
-    border:1px solid var(--line);border-radius:4px;
-    background:var(--bg);overflow:hidden;
+    border:1px solid var(--line);border-radius:4px;background:var(--bg);overflow:hidden;
   }
-  .hero-facts .row{
-    display:flex;justify-content:space-between;gap:16px;
-    padding:10px 14px;border-bottom:1px solid var(--line);color:var(--muted);
-  }
+  .hero-facts .row{display:flex;justify-content:space-between;gap:16px;padding:10px 14px;border-bottom:1px solid var(--line);color:var(--muted);}
   .hero-facts .row:last-child{border-bottom:0}
   .hero-facts .row b{color:var(--ink);font-weight:500;text-align:right}
   .hero-facts .row .accent{color:var(--accent)}
   .hero-facts .row.head{background:var(--surface);color:var(--ink);text-transform:uppercase;letter-spacing:.06em;font-size:10.5px}
 
   /* ── SECTION HEADERS ───────────────────────────────── */
-  .section{padding:64px 0}
+  .section{
+    padding:64px 0;
+    background:color-mix(in oklab, var(--c, transparent) 11%, var(--bg));
+    transition:background .3s ease;
+  }
   .section-head{
-    display:grid;grid-template-columns:160px 1fr;gap:32px;
-    margin-bottom:48px;align-items:end;
-    padding-bottom:18px;border-bottom:1px solid var(--line);
+    display:grid;grid-template-columns:200px 1fr;gap:32px;
+    margin-bottom:48px;align-items:baseline;
+    padding-bottom:18px;
+    border-bottom:1px solid color-mix(in oklab, var(--c, transparent) 32%, var(--line));
   }
   .section-num{font-family:var(--mono-font);font-size:12px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;}
-  .section-num b{display:block;color:var(--ink);font-weight:500;font-size:13px;margin-top:4px}
+  .section-num b{display:block;color:var(--c, var(--ink));font-weight:600;font-size:13px;margin-top:4px}
   .section-title{
-    font-family:var(--headline-font);font-size:clamp(22px, 2.4vw, 34px);
-    font-weight:600;letter-spacing:-.02em;line-height:1.1;
-    margin:0;max-width:none;white-space:nowrap;overflow:visible;
+    font-family:var(--headline-font);font-size:clamp(26px, 2.9vw, 38px);
+    font-weight:600;letter-spacing:-.02em;line-height:1.05;
+    margin:0;max-width:none;white-space:nowrap;
   }
 
   /* ── ABOUT ─────────────────────────────────────────── */
@@ -212,10 +220,7 @@
   .about-prose p.muted{color:var(--muted)}
 
   /* ── METRICS STRIP ─────────────────────────────────── */
-  .metrics{
-    display:grid;grid-template-columns:repeat(4, 1fr);gap:0;
-    border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:64px;
-  }
+  .metrics{display:grid;grid-template-columns:repeat(4, 1fr);gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:64px;}
   .metric{padding:28px 24px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:6px;}
   .metric:last-child{border-right:0}
   .metric-num{font-family:var(--headline-font);font-size:clamp(28px, 3vw, 40px);font-weight:600;letter-spacing:-.02em;line-height:1}
@@ -223,10 +228,7 @@
   .metric-label{font-family:var(--mono-font);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
 
   /* ── WORK / CASE STUDIES ───────────────────────────── */
-  .case{
-    display:grid;grid-template-columns:1fr 1.1fr;gap:48px;
-    padding:48px 0;border-bottom:1px solid var(--line);align-items:start;
-  }
+  .case{display:grid;grid-template-columns:1fr 1.1fr;gap:48px;padding:48px 0;border-bottom:1px solid var(--line);align-items:start;}
   .case:last-child{border-bottom:0}
   .case-meta{position:sticky;top:80px;display:flex;flex-direction:column;gap:14px}
   .case-tag{font-family:var(--mono-font);font-size:11px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;display:flex;justify-content:space-between;}
@@ -235,11 +237,7 @@
   .case-summary{color:var(--muted);font-size:15.5px;margin:0;max-width:50ch}
   .case-stack{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
   .chip{font-family:var(--mono-font);font-size:11px;color:var(--ink);background:var(--chip);padding:4px 8px;border-radius:4px;border:1px solid var(--line);}
-  .case-visual{
-    background:var(--surface);border:1px solid var(--line);border-radius:6px;
-    aspect-ratio:16/10;position:relative;overflow:hidden;
-    display:flex;align-items:center;justify-content:center;
-  }
+  .case-visual{background:var(--surface);border:1px solid var(--line);border-radius:6px;aspect-ratio:16/10;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;}
   .case-visual.stripes{background:repeating-linear-gradient(135deg, var(--line) 0 1px, transparent 1px 14px), var(--surface);}
   .case-visual-label{font-family:var(--mono-font);font-size:11px;color:var(--muted);background:var(--bg);padding:6px 10px;border:1px solid var(--line);border-radius:4px;letter-spacing:.04em;}
   .case-bullets{margin:16px 0 0;padding:0;list-style:none;display:grid;gap:10px}
@@ -315,20 +313,22 @@
   .post{
     display:grid;grid-template-columns:100px 1fr 180px 30px;gap:24px;
     padding:22px 0;align-items:center;border-bottom:1px solid var(--line);
-    text-decoration:none;color:inherit;
+    text-decoration:none;color:inherit;cursor:pointer;
   }
+  .post:hover{background:var(--surface)}
+  .post:hover .post-title{color:var(--accent)}
   .post-date{font-family:var(--mono-font);font-size:11.5px;color:var(--muted)}
-  .post-title{font-size:18px;font-weight:500;letter-spacing:-.01em;font-family:var(--headline-font)}
+  .post-title{font-size:18px;font-weight:500;letter-spacing:-.01em;font-family:var(--headline-font);transition:color .15s}
   .post-cat{font-family:var(--mono-font);font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
-  .post-arrow{font-family:var(--mono-font);color:var(--muted);text-align:right}
+  .post-arrow{font-family:var(--mono-font);color:var(--muted);text-align:right;transition:transform .15s, color .15s}
+  .post:hover .post-arrow{color:var(--accent);transform:translateX(3px)}
 
   /* ── HOBBIES ───────────────────────────────────────── */
   .hobbies-grid{display:grid;grid-template-columns:200px 1fr;gap:40px}
-  .hobby-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--section-gap)}
+  .hobby-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--section-gap,28px)}
   .hobby{
     position:relative;border:1px solid var(--line);border-radius:10px;
-    background:var(--bg);overflow:hidden;
-    display:flex;flex-direction:column;
+    background:var(--bg);overflow:hidden;display:flex;flex-direction:column;
     transition:transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease, border-color .35s ease;
   }
   .hobby:hover{transform:translateY(-4px);border-color:color-mix(in oklab, var(--accent) 45%, var(--line));box-shadow:0 18px 40px -24px color-mix(in oklab, var(--accent) 60%, transparent)}
@@ -336,8 +336,7 @@
   .hobby-tag{
     position:absolute;top:12px;left:12px;z-index:3;
     font-family:var(--mono-font);font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;
-    color:var(--ink);background:var(--bg);border:1px solid var(--line);
-    padding:4px 9px;border-radius:999px;
+    color:var(--ink);background:var(--bg);border:1px solid var(--line);padding:4px 9px;border-radius:999px;
   }
   .hobby-body{padding:22px 22px 24px;display:flex;flex-direction:column;gap:10px;flex:1}
   .hobby-body h3{margin:0;font-family:var(--headline-font);font-size:22px;font-weight:600;letter-spacing:-.01em}
@@ -373,7 +372,11 @@
   }
 
   /* ── CONTACT / FOOTER ──────────────────────────────── */
-  .contact{margin-top:0;border-top:1px solid var(--line);background:var(--surface);}
+  .contact{
+    margin-top:0;
+    border-top:1px solid color-mix(in oklab, var(--c, transparent) 32%, var(--line));
+    background:color-mix(in oklab, var(--c, transparent) 13%, var(--surface));
+  }
   .contact-inner{max-width:var(--container);margin:0 auto;padding:80px 32px 32px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:end;}
   .contact h2{font-family:var(--headline-font);font-size:clamp(40px, 5vw, 72px);font-weight:600;letter-spacing:-.025em;line-height:1;margin:0 0 24px;text-wrap:balance;}
   .contact h2 em{font-style:normal;color:var(--accent)}
@@ -388,6 +391,7 @@
   /* ── RESPONSIVE ────────────────────────────────────── */
   @media (max-width: 920px){
     .hero-grid{grid-template-columns:1fr;gap:40px}
+    .hero-side{padding-top:0}
     .section-head{grid-template-columns:1fr;gap:12px}
     .section-title{white-space:normal;text-wrap:balance}
     .about-grid,.timeline,.skills-grid,.writing,.hobbies-grid{grid-template-columns:1fr;gap:24px}
@@ -422,13 +426,13 @@
       </span>
     </a>
     <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#work">Work</a>
-      <a href="#experience">Experience</a>
-      <a href="#skills">Skills</a>
-      <a href="#writing">Background</a>
-      <a href="#hobbies">Hobbies</a>
-      <a href="#contact">Connect2Me</a>
+      <a href="#about"      style="--c:#1e9aa6">About</a>
+      <a href="#work"       style="--c:#2f6fb0">Work</a>
+      <a href="#experience" style="--c:#b07d2b">Experience</a>
+      <a href="#skills"     style="--c:#c05f3c">Skills</a>
+      <a href="#writing"    style="--c:#7a5ea8">Background</a>
+      <a href="#hobbies"    style="--c:#4f8f5a">Hobbies</a>
+      <a href="#contact"    style="--c:#c14d6e">Connect2Me</a>
       <span class="nav-ind" aria-hidden="true"></span>
     </div>
     <a class="nav-cta" href="#contact">
@@ -492,7 +496,7 @@
 </header>
 
 <!-- ABOUT -->
-<section id="about" class="section">
+<section id="about" class="section" style="--c:#1e9aa6">
   <div class="container">
     <div class="section-head">
       <div class="section-num"><span>§ 01</span><b>About</b></div>
@@ -502,28 +506,15 @@
       <aside class="about-aside">
         <div>
           <h4>Core</h4>
-          <ul>
-            <li>Software architecture</li>
-            <li>Microservices &amp; APIs</li>
-            <li>Digital banking platforms</li>
-            <li>Team leadership</li>
-          </ul>
+          <ul><li>Software architecture</li><li>Microservices &amp; APIs</li><li>Digital banking platforms</li><li>Team leadership</li></ul>
         </div>
         <div>
           <h4>Industries</h4>
-          <ul>
-            <li>Banking &amp; finance</li>
-            <li>Healthcare &amp; insurance</li>
-            <li>Logistics &amp; retail</li>
-          </ul>
+          <ul><li>Banking &amp; finance</li><li>Healthcare &amp; insurance</li><li>Logistics &amp; retail</li></ul>
         </div>
         <div>
           <h4>Engagements</h4>
-          <ul>
-            <li>Full-time</li>
-            <li>Technical leadership</li>
-            <li>Mentoring</li>
-          </ul>
+          <ul><li>Full-time</li><li>Technical leadership</li><li>Mentoring</li></ul>
         </div>
       </aside>
       <div class="about-prose">
@@ -546,7 +537,7 @@
 </section>
 
 <!-- WORK -->
-<section id="work" class="section">
+<section id="work" class="section" style="--c:#2f6fb0">
   <div class="container">
     <div class="section-head">
       <div class="section-num"><span>§ 02</span><b>Selected work</b></div>
@@ -658,7 +649,7 @@
 </section>
 
 <!-- EXPERIENCE -->
-<section id="experience" class="section">
+<section id="experience" class="section" style="--c:#b07d2b">
   <div class="container">
     <div class="section-head">
       <div class="section-num"><span>§ 03</span><b>Experience</b></div>
@@ -697,7 +688,7 @@
 </section>
 
 <!-- SKILLS -->
-<section id="skills" class="section">
+<section id="skills" class="section" style="--c:#c05f3c">
   <div class="container">
     <div class="section-head">
       <div class="section-num"><span>§ 04</span><b>Skills &amp; stack</b></div>
@@ -710,75 +701,19 @@
         <div class="mono" style="margin-top:18px;font-size:11px;color:var(--muted)">● expert &nbsp;&nbsp; ◐ working knowledge<br />○ exposure, would learn fast</div>
       </aside>
       <div class="skills">
-        <div class="skill-col">
-          <h4><span>Languages</span><span class="num">06</span></h4>
-          <ul class="skill-list">
-            <li><span>Java · J2EE</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="accent"></i></span></li>
-            <li><span>Java 11 / 17</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="on"></i></span></li>
-            <li><span>Python</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="accent"></i><i></i></span></li>
-            <li><span>JavaScript</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="on"></i><i></i></span></li>
-            <li><span>C#</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="on"></i><i></i><i></i></span></li>
-            <li><span>SQL</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="accent"></i><i></i></span></li>
-          </ul>
-        </div>
-        <div class="skill-col">
-          <h4><span>Frameworks</span><span class="num">07</span></h4>
-          <ul class="skill-list">
-            <li><span>Spring Boot</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="accent"></i></span></li>
-            <li><span>Microservices</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="accent"></i></span></li>
-            <li><span>Apache Camel</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="accent"></i><i></i></span></li>
-            <li><span>Spring Batch / Security</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="accent"></i><i></i></span></li>
-            <li><span>JPA / Hibernate</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="accent"></i><i></i></span></li>
-            <li><span>React</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="on"></i><i></i></span></li>
-            <li><span>IBM UMQ · ASP.Net</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i></i><i></i></span></li>
-          </ul>
-        </div>
-        <div class="skill-col">
-          <h4><span>Data</span><span class="num">03</span></h4>
-          <ul class="skill-list">
-            <li><span>Oracle</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="on"></i></span></li>
-            <li><span>Maria DB</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="accent"></i><i></i></span></li>
-            <li><span>MS SQL Server</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="on"></i><i></i></span></li>
-          </ul>
-        </div>
-        <div class="skill-col">
-          <h4><span>DevOps &amp; CI/CD</span><span class="num">05</span></h4>
-          <ul class="skill-list">
-            <li><span>PCF · Pivotal Cloud Foundry</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="accent"></i><i></i></span></li>
-            <li><span>Jenkins CICD</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="accent"></i><i></i></span></li>
-            <li><span>IBM TWS · workload automation</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="on"></i><i></i></span></li>
-            <li><span>Bitbucket · SVN</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="accent"></i><i></i></span></li>
-            <li><span>Linux · Windows</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="accent"></i><i></i></span></li>
-          </ul>
-        </div>
-        <div class="skill-col">
-          <h4><span>Observability &amp; Quality</span><span class="num">06</span></h4>
-          <ul class="skill-list">
-            <li><span>Elastic Search</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="accent"></i><i></i></span></li>
-            <li><span>Filebeat · Grafana</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="on"></i><i></i></span></li>
-            <li><span>Splunk</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="on"></i><i></i></span></li>
-            <li><span>SonarQube · Veracode</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="accent"></i><i></i></span></li>
-            <li><span>JUnit</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="accent"></i><i></i></span></li>
-            <li><span>Confluence · JIRA · Visio</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="accent"></i><i></i></span></li>
-          </ul>
-        </div>
-        <div class="skill-col">
-          <h4><span>GenAI &amp; Practice</span><span class="num">05</span></h4>
-          <ul class="skill-list">
-            <li><span>Claude Code</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="accent"></i><i></i></span></li>
-            <li><span>Glean</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="on"></i><i></i></span></li>
-            <li><span>System design · HLD / LLD</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="accent"></i></span></li>
-            <li><span>Mentoring &amp; leadership</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="accent"></i><i></i></span></li>
-            <li><span>Agile · Scrum</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="accent"></i><i></i></span></li>
-          </ul>
-        </div>
+        <div class="skill-col"><h4><span>Languages</span><span class="num">06</span></h4><ul class="skill-list"><li><span>Java · J2EE</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="accent"></i></span></li><li><span>Java 11 / 17</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="on"></i></span></li><li><span>Python</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="accent"></i><i></i></span></li><li><span>JavaScript</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="on"></i><i></i></span></li><li><span>C#</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="on"></i><i></i><i></i></span></li><li><span>SQL</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="accent"></i><i></i></span></li></ul></div>
+        <div class="skill-col"><h4><span>Frameworks</span><span class="num">07</span></h4><ul class="skill-list"><li><span>Spring Boot</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="accent"></i></span></li><li><span>Microservices</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="accent"></i></span></li><li><span>Apache Camel</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="accent"></i><i></i></span></li><li><span>Spring Batch / Security</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="accent"></i><i></i></span></li><li><span>JPA / Hibernate</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="accent"></i><i></i></span></li><li><span>React</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="on"></i><i></i></span></li><li><span>IBM UMQ · ASP.Net</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i></i><i></i></span></li></ul></div>
+        <div class="skill-col"><h4><span>Data</span><span class="num">03</span></h4><ul class="skill-list"><li><span>Oracle</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="on"></i></span></li><li><span>Maria DB</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="accent"></i><i></i></span></li><li><span>MS SQL Server</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="on"></i><i></i></span></li></ul></div>
+        <div class="skill-col"><h4><span>DevOps &amp; CI/CD</span><span class="num">05</span></h4><ul class="skill-list"><li><span>PCF · Pivotal Cloud Foundry</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="accent"></i><i></i></span></li><li><span>Jenkins CICD</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="accent"></i><i></i></span></li><li><span>IBM TWS · workload automation</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="on"></i><i></i></span></li><li><span>Bitbucket · SVN</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="accent"></i><i></i></span></li><li><span>Linux · Windows</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="accent"></i><i></i></span></li></ul></div>
+        <div class="skill-col"><h4><span>Observability &amp; Quality</span><span class="num">06</span></h4><ul class="skill-list"><li><span>Elastic Search</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="accent"></i><i></i></span></li><li><span>Filebeat · Grafana</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="on"></i><i></i></span></li><li><span>Splunk</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="on"></i><i></i></span></li><li><span>SonarQube · Veracode</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="accent"></i><i></i></span></li><li><span>JUnit</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="accent"></i><i></i></span></li><li><span>Confluence · JIRA · Visio</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="accent"></i><i></i></span></li></ul></div>
+        <div class="skill-col"><h4><span>GenAI &amp; Practice</span><span class="num">05</span></h4><ul class="skill-list"><li><span>Claude Code</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="accent"></i><i></i></span></li><li><span>Glean</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="on"></i><i></i></span></li><li><span>System design · HLD / LLD</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="accent"></i></span></li><li><span>Mentoring &amp; leadership</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="accent"></i><i></i></span></li><li><span>Agile · Scrum</span><span class="level"><i class="accent"></i><i class="accent"></i><i class="accent"></i><i class="accent"></i><i></i></span></li></ul></div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- BACKGROUND & EDUCATION -->
-<section id="writing" class="section">
+<section id="writing" class="section" style="--c:#7a5ea8">
   <div class="container">
     <div class="section-head">
       <div class="section-num"><span>§ 05</span><b>Background &amp; education</b></div>
@@ -791,19 +726,19 @@
         <div class="mono" style="margin-top:18px;font-size:11.5px;color:var(--muted)">Singapore · Indian national</div>
       </aside>
       <div class="posts">
-        <div class="post"><span class="post-date mono">Edu · 2006</span><span class="post-title">MCA — Master of Computer Applications</span><span class="post-cat mono">IGNOU, New Delhi</span><span class="post-arrow mono">·</span></div>
-        <div class="post"><span class="post-date mono">Edu · 2001</span><span class="post-title">BSc — Bachelor of Science</span><span class="post-cat mono">Vinoba Bhave University</span><span class="post-arrow mono">·</span></div>
-        <div class="post"><span class="post-date mono">Award</span><span class="post-title">High Achiever Award — most impact to team &amp; colleagues</span><span class="post-cat mono">UOB</span><span class="post-arrow mono">★</span></div>
-        <div class="post"><span class="post-date mono">Channel4 · UK</span><span class="post-title">MINT — core ad-sales platform, DDD microservices</span><span class="post-cat mono">Media</span><span class="post-arrow mono">·</span></div>
-        <div class="post"><span class="post-date mono">JP Morgan · US</span><span class="post-title">ATS Payments — file import &amp; print export</span><span class="post-cat mono">Banking</span><span class="post-arrow mono">·</span></div>
-        <div class="post"><span class="post-date mono">DHL · DE</span><span class="post-title">ODS — shipment-data integration platform</span><span class="post-cat mono">Logistics</span><span class="post-arrow mono">·</span></div>
+        <div class="post" style="cursor:default"><span class="post-date mono">Edu · 2006</span><span class="post-title">MCA — Master of Computer Applications</span><span class="post-cat mono">IGNOU, New Delhi</span><span class="post-arrow mono">·</span></div>
+        <div class="post" style="cursor:default"><span class="post-date mono">Edu · 2001</span><span class="post-title">BSc — Bachelor of Science</span><span class="post-cat mono">Vinoba Bhave University</span><span class="post-arrow mono">·</span></div>
+        <div class="post" style="cursor:default"><span class="post-date mono">Award</span><span class="post-title">High Achiever Award — most impact to team &amp; colleagues</span><span class="post-cat mono">UOB</span><span class="post-arrow mono">★</span></div>
+        <div class="post" style="cursor:default"><span class="post-date mono">Channel4 · UK</span><span class="post-title">MINT — core ad-sales platform, DDD microservices</span><span class="post-cat mono">Media</span><span class="post-arrow mono">·</span></div>
+        <div class="post" style="cursor:default"><span class="post-date mono">JP Morgan · US</span><span class="post-title">ATS Payments — file import &amp; print export</span><span class="post-cat mono">Banking</span><span class="post-arrow mono">·</span></div>
+        <div class="post" style="cursor:default"><span class="post-date mono">DHL · DE</span><span class="post-title">ODS — shipment-data integration platform</span><span class="post-cat mono">Logistics</span><span class="post-arrow mono">·</span></div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- HOBBIES -->
-<section id="hobbies" class="section">
+<section id="hobbies" class="section" style="--c:#4f8f5a">
   <div class="container">
     <div class="section-head">
       <div class="section-num"><span>§ 06</span><b>Hobbies &amp; interests</b></div>
@@ -818,11 +753,7 @@
         <article class="hobby">
           <div class="hobby-scene sc-cricket" aria-hidden="true">
             <span class="hobby-tag">On the pitch</span>
-            <span class="field-line"></span>
-            <span class="pitch"></span>
-            <span class="stumps"></span>
-            <span class="bat"></span>
-            <span class="ball"></span>
+            <span class="field-line"></span><span class="pitch"></span><span class="stumps"></span><span class="bat"></span><span class="ball"></span>
           </div>
           <div class="hobby-body">
             <h3>Playing cricket</h3>
@@ -833,13 +764,8 @@
         <article class="hobby">
           <div class="hobby-scene sc-travel" aria-hidden="true">
             <span class="hobby-tag">On the road</span>
-            <span class="sun"></span>
-            <span class="cloud c1"></span>
-            <span class="cloud c2"></span>
-            <span class="plane">✈</span>
-            <span class="mtn m1"></span>
-            <span class="mtn m2"></span>
-            <span class="cap"></span>
+            <span class="sun"></span><span class="cloud c1"></span><span class="cloud c2"></span><span class="plane">✈</span>
+            <span class="mtn m1"></span><span class="mtn m2"></span><span class="cap"></span>
           </div>
           <div class="hobby-body">
             <h3>Tourism &amp; travel</h3>
@@ -855,7 +781,7 @@
 </main>
 
 <!-- CONTACT -->
-<section id="contact" class="contact">
+<section id="contact" class="contact" style="--c:#c14d6e">
   <div class="contact-inner">
     <div>
       <div class="eyebrow"><span>Get in touch</span><span class="mono">— § 07</span></div>
@@ -875,6 +801,14 @@
     <div>© 2026 Aman Kumar Gupta · amankgupta.com</div>
   </div>
 </section>
+
+<!-- BACK TO TOP -->
+<button class="to-top" id="toTop" aria-label="Back to top" title="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M12 19V5M5 12l7-7 7 7"></path>
+  </svg>
+  <span class="tt-label">Top</span>
+</button>
 
 <script>
   (function buildPods(){
@@ -903,6 +837,8 @@
 
     function moveTo(el){
       if(!el || !ind) return;
+      var c = getComputedStyle(el).getPropertyValue('--c').trim();
+      if(c) ind.style.setProperty('--ind-c', c);
       ind.style.width = el.offsetWidth + 'px';
       ind.style.transform = 'translateX(' + el.offsetLeft + 'px)';
       ind.classList.add('show');
@@ -948,6 +884,18 @@
     if(document.readyState === 'complete') init();
     else window.addEventListener('load', init);
     window.addEventListener('resize', function(){ moveTo(current); });
+  })();
+
+  (function backToTop(){
+    var btn = document.getElementById('toTop');
+    if(!btn) return;
+    function onScroll(){ btn.classList.toggle('show', (window.pageYOffset||document.documentElement.scrollTop) > 520); }
+    btn.addEventListener('click', function(){
+      window.scrollTo({ top:0, behavior:'smooth' });
+      history.replaceState(null, '', location.pathname + location.search);
+    });
+    window.addEventListener('scroll', onScroll, { passive:true });
+    onScroll();
   })();
 </script>
 
