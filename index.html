@@ -96,6 +96,72 @@
     background:var(--ind-c,var(--accent));filter:blur(4px);opacity:.5;
   }
   @media (prefers-reduced-motion: reduce){.nav-ind{transition:none}}
+
+  /* ── MOBILE NAV ─────────────────────────────────────── */
+  .nav-toggle{
+    display:none;width:44px;height:44px;flex:0 0 44px;
+    align-items:center;justify-content:center;
+    border:1px solid var(--line);border-radius:12px;
+    background:var(--surface);color:var(--ink);cursor:pointer;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .nav-toggle:active{background:var(--chip)}
+  .nav-toggle .bars{position:relative;display:block;width:20px;height:14px}
+  .nav-toggle .bars i{
+    position:absolute;left:0;width:100%;height:2px;border-radius:2px;background:currentColor;
+    transition:transform .3s cubic-bezier(.6,.05,.2,1), opacity .2s ease, top .3s ease;
+  }
+  .nav-toggle .bars i:nth-child(1){top:0}
+  .nav-toggle .bars i:nth-child(2){top:6px}
+  .nav-toggle .bars i:nth-child(3){top:12px}
+  .nav-toggle[aria-expanded="true"] .bars i:nth-child(1){top:6px;transform:rotate(45deg)}
+  .nav-toggle[aria-expanded="true"] .bars i:nth-child(2){opacity:0}
+  .nav-toggle[aria-expanded="true"] .bars i:nth-child(3){top:6px;transform:rotate(-45deg)}
+
+  .nav-scrim{
+    position:fixed;inset:0;z-index:40;
+    background:color-mix(in oklab, var(--ink) 36%, transparent);
+    backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);
+    opacity:0;visibility:hidden;transition:opacity .3s ease, visibility .3s ease;
+  }
+  .nav-scrim.open{opacity:1;visibility:visible}
+
+  .nav-mobile{
+    display:none;
+    position:absolute;top:100%;left:0;right:0;z-index:45;
+    flex-direction:column;
+    background:color-mix(in oklab, var(--bg) 97%, transparent);
+    backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%);
+    border-bottom:1px solid var(--line);
+    box-shadow:0 26px 44px -26px rgba(26,24,22,.45);
+    padding:8px 22px calc(18px + env(safe-area-inset-bottom));
+    opacity:0;transform:translateY(-12px);pointer-events:none;
+    transition:opacity .28s ease, transform .34s cubic-bezier(.6,.05,.2,1);
+  }
+  .nav-mobile.open{opacity:1;transform:translateY(0);pointer-events:auto}
+  .nav-mobile a{
+    display:flex;align-items:center;gap:14px;
+    padding:14px 6px;min-height:52px;
+    font-size:17px;color:var(--ink);text-decoration:none;letter-spacing:-.01em;
+    border-bottom:1px solid color-mix(in oklab, var(--line) 55%, transparent);
+  }
+  .nav-mobile a .nm-dot{
+    width:9px;height:9px;border-radius:50%;flex:none;background:var(--c, var(--accent));
+    box-shadow:0 0 0 4px color-mix(in oklab, var(--c, var(--accent)) 16%, transparent);
+  }
+  .nav-mobile a .nm-idx{margin-left:auto;font-size:12px;color:var(--muted);font-family:var(--mono-font)}
+  .nav-mobile a:active{color:var(--c, var(--accent))}
+  .nav-mobile .nm-cta{
+    margin-top:16px;justify-content:center;gap:9px;border-bottom:0;
+    border:1px solid var(--line);border-radius:999px;
+    font-family:var(--mono-font);font-size:13px;background:var(--surface);min-height:50px;
+  }
+  .nav-mobile .nm-cta .dot{width:7px;height:7px;border-radius:50%;background:#3aa76d;box-shadow:0 0 0 3px color-mix(in oklab, #3aa76d 25%, transparent)}
+  body.nav-open{overflow:hidden}
+  @media (prefers-reduced-motion: reduce){
+    .nav-mobile,.nav-toggle .bars i,.nav-scrim{transition:opacity .2s ease}
+  }
+
   .nav-cta{
     font-family:var(--mono-font);font-size:12px;
     border:1px solid var(--line);padding:8px 12px;border-radius:999px;
@@ -409,7 +475,23 @@
     .hobby-cards{grid-template-columns:1fr}
     .contact-inner{grid-template-columns:1fr;gap:32px}
     .nav-links{display:none}
+    .nav-cta{display:none}
+    .nav-toggle{display:inline-flex}
+    .nav-mobile{display:flex}
     .container{padding:0 22px}
+  }
+  @media (max-width:560px){
+    .nav-inner{padding:11px 18px;gap:12px}
+    .brand-sub{display:none}
+    .container{padding:0 18px}
+    .hero{padding:54px 0 44px}
+    h1.headline{font-size:clamp(31px,8.6vw,46px);margin-bottom:22px}
+    .hero-grid{gap:32px}
+    .section{padding:46px 0}
+    .section-title{font-size:clamp(23px,7vw,31px)}
+    .metrics{grid-template-columns:1fr 1fr}
+    .contact-inner{padding:52px 18px 30px}
+    .contact h2{font-size:clamp(34px,10vw,48px)}
   }
 </style>
 </head>
@@ -439,8 +521,22 @@
       <span class="dot"></span>
       <span>Singapore · open to roles</span>
     </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navMobile">
+      <span class="bars" aria-hidden="true"><i></i><i></i><i></i></span>
+    </button>
+  </div>
+  <div class="nav-mobile" id="navMobile">
+    <a href="#about"      style="--c:#1e9aa6"><span class="nm-dot"></span>About<span class="nm-idx mono">01</span></a>
+    <a href="#work"       style="--c:#2f6fb0"><span class="nm-dot"></span>Work<span class="nm-idx mono">02</span></a>
+    <a href="#experience" style="--c:#b07d2b"><span class="nm-dot"></span>Experience<span class="nm-idx mono">03</span></a>
+    <a href="#skills"     style="--c:#c05f3c"><span class="nm-dot"></span>Skills<span class="nm-idx mono">04</span></a>
+    <a href="#writing"    style="--c:#7a5ea8"><span class="nm-dot"></span>Background<span class="nm-idx mono">05</span></a>
+    <a href="#hobbies"    style="--c:#4f8f5a"><span class="nm-dot"></span>Hobbies<span class="nm-idx mono">06</span></a>
+    <a href="#contact"    style="--c:#c14d6e"><span class="nm-dot"></span>Connect2Me<span class="nm-idx mono">07</span></a>
+    <a class="nm-cta" href="#contact"><span class="dot"></span>Singapore · open to roles</a>
   </div>
 </nav>
+<div class="nav-scrim" id="navScrim" aria-hidden="true"></div>
 
 <main id="top">
 
@@ -896,6 +992,44 @@
     });
     window.addEventListener('scroll', onScroll, { passive:true });
     onScroll();
+  })();
+
+  (function mobileNav(){
+    var toggle = document.getElementById('navToggle');
+    var menu   = document.getElementById('navMobile');
+    var scrim  = document.getElementById('navScrim');
+    if(!toggle || !menu) return;
+
+    function setOpen(open){
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      menu.classList.toggle('open', open);
+      if(scrim) scrim.classList.toggle('open', open);
+      document.body.classList.toggle('nav-open', open);
+    }
+
+    toggle.addEventListener('click', function(){
+      setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+    });
+    if(scrim) scrim.addEventListener('click', function(){ setOpen(false); });
+
+    Array.prototype.forEach.call(menu.querySelectorAll('a'), function(a){
+      a.addEventListener('click', function(e){
+        var href = a.getAttribute('href');
+        var target = href && href.charAt(0) === '#' ? document.querySelector(href) : null;
+        setOpen(false);
+        if(target){
+          e.preventDefault();
+          setTimeout(function(){
+            target.scrollIntoView({ behavior:'smooth', block:'start' });
+            history.replaceState(null, '', href);
+          }, 200);
+        }
+      });
+    });
+
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape') setOpen(false); });
+    window.addEventListener('resize', function(){ if(window.innerWidth > 920) setOpen(false); });
   })();
 </script>
 
