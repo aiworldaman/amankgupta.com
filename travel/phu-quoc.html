@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Phu Quoc — Travel Journal · Aman Kumar Gupta</title>
+<meta name="description" content="A family island getaway in Phu Quoc, Vietnam — beaches, Grand World canals, the Kiss Bridge and VinWonders. Photo journal by Aman Kumar Gupta." />
+<link rel="icon" href="../assets/avatar.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#f4f1ea; --ink:#1a1816; --muted:#6b665d;
+    --line:rgba(26,24,22,.12); --surface:#ecebe4; --chip:rgba(26,24,22,.06);
+    --accent:#1e9aa6; --accent2:#1e9aa6;
+    --sans:"IBM Plex Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+    --container:1160px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  html{background:var(--bg);scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  img{display:block;max-width:100%}
+  a{color:inherit}
+  .mono{font-family:var(--mono)}
+  .container{max-width:var(--container);margin:0 auto;padding:0 32px}
+
+  /* nav */
+  .nav{position:sticky;top:0;z-index:20;background:color-mix(in oklab, var(--bg) 88%, transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav-inner{max-width:var(--container);margin:0 auto;padding:14px 32px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;min-width:0}
+  .brand img{width:30px;height:30px;border-radius:50%;object-fit:cover;border:1px solid var(--line)}
+  .brand-name{font-weight:600;letter-spacing:-.01em;white-space:nowrap}
+  .brand-sub{font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap}
+  .back{font-family:var(--mono);font-size:12px;text-decoration:none;color:var(--ink);border:1px solid var(--line);padding:7px 12px;border-radius:999px;white-space:nowrap;transition:border-color .2s,color .2s}
+  .back:hover{color:var(--accent);border-color:var(--accent)}
+
+  /* hero */
+  .hero{padding:72px 0 40px}
+  .eyebrow{font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;display:flex;gap:14px;flex-wrap:wrap;margin-bottom:22px}
+  .eyebrow b{color:var(--accent);font-weight:600}
+  h1{font-weight:600;font-size:clamp(40px,6vw,84px);line-height:1.02;letter-spacing:-.03em;margin:0 0 22px;text-wrap:balance}
+  h1 em{font-style:normal;color:var(--accent)}
+  h1 .slash{color:var(--muted);font-weight:300}
+  .lede{font-size:clamp(16px,1.3vw,19px);color:var(--muted);max-width:58ch;margin:0 0 32px;text-wrap:pretty}
+  .facts{display:flex;flex-wrap:wrap;gap:12px 28px;font-family:var(--mono);font-size:12px;color:var(--muted)}
+  .facts b{color:var(--ink);font-weight:500}
+  .triptych{display:grid;grid-template-columns:1fr 1.15fr 1fr;gap:14px;margin-top:48px;align-items:end}
+  .triptych button{aspect-ratio:3/4}
+  .triptych button:nth-child(2){aspect-ratio:3/4.4}
+
+  /* chapters */
+  .chapter{padding:64px 0;border-top:1px solid var(--line)}
+  .ch-head{display:grid;grid-template-columns:220px 1fr;gap:40px;margin-bottom:36px;align-items:start}
+  .ch-num{font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+  .ch-num b{display:block;color:var(--c,var(--accent));font-weight:600;font-size:13px;margin-top:4px}
+  .ch-title{font-size:clamp(26px,3vw,40px);font-weight:600;letter-spacing:-.02em;line-height:1.08;margin:0 0 12px;text-wrap:balance}
+  .ch-text{color:var(--muted);max-width:62ch;margin:0;font-size:16px;text-wrap:pretty}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+  .chip{font-family:var(--mono);font-size:11px;background:var(--chip);border:1px solid var(--line);padding:4px 8px;border-radius:4px}
+
+  /* gallery */
+  .grid{columns:3 280px;column-gap:14px}
+  .ph{break-inside:avoid;margin:0 0 14px}
+  .shot{all:unset;cursor:zoom-in;display:block;position:relative;overflow:hidden;border-radius:10px;border:1px solid var(--line);background:var(--surface);width:100%;height:100%}
+  .shot img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+  .shot:hover img{transform:scale(1.035)}
+  .shot:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+  .ph figcaption{display:flex;justify-content:space-between;gap:12px;padding:8px 2px 0;font-family:var(--mono);font-size:11.5px;color:var(--muted)}
+  .ph figcaption b{color:var(--ink);font-weight:500}
+  .wide{column-span:all;margin-bottom:14px}
+  .wide .shot{aspect-ratio:21/9}
+
+  /* outro */
+  .outro{padding:72px 0 40px;border-top:1px solid var(--line)}
+  .outro p{font-size:clamp(22px,2.4vw,32px);font-weight:500;letter-spacing:-.015em;line-height:1.25;max-width:30ch;margin:0 0 28px;text-wrap:balance}
+  .outro p em{font-style:normal;color:var(--accent)}
+  .footer{max-width:var(--container);margin:0 auto;padding:24px 32px 40px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:var(--mono);font-size:11.5px;color:var(--muted);border-top:1px solid var(--line)}
+  .footer a{text-decoration:none}
+  .footer a:hover{color:var(--accent)}
+
+  /* lightbox */
+  .lb{position:fixed;inset:0;z-index:50;background:rgba(20,18,16,.94);display:none;align-items:center;justify-content:center;padding:56px 72px}
+  .lb.open{display:flex}
+  .lb img{max-width:100%;max-height:calc(100vh - 140px);border-radius:6px;box-shadow:0 30px 80px -20px rgba(0,0,0,.6)}
+  .lb-cap{position:absolute;left:0;right:0;bottom:18px;text-align:center;font-family:var(--mono);font-size:12px;color:#d9d4ca;padding:0 16px}
+  .lb-cap b{color:#fff;font-weight:500}
+  .lb button{position:absolute;background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.18);width:44px;height:44px;border-radius:50%;font-size:18px;cursor:pointer;font-family:var(--mono)}
+  .lb button:hover{background:rgba(255,255,255,.18)}
+  .lb .close{top:16px;right:16px}
+  .lb .prev{left:16px;top:50%;transform:translateY(-50%)}
+  .lb .next{right:16px;top:50%;transform:translateY(-50%)}
+
+  @media (max-width:820px){
+    .container,.nav-inner,.footer{padding-left:16px;padding-right:16px}
+    .hero{padding:44px 0 28px}
+    .ch-head{grid-template-columns:1fr;gap:10px}
+    .chapter{padding:44px 0}
+    .triptych{gap:8px;margin-top:32px}
+    .grid{columns:2 150px;column-gap:10px}
+    .ph{margin-bottom:10px}
+    .wide .shot{aspect-ratio:16/9}
+    .brand-sub{display:none}
+    .lb{padding:56px 8px 64px}
+    .lb .prev,.lb .next{top:auto;bottom:10px;transform:none}
+    .ph figcaption span:last-child{display:none}
+  }
+  @media (prefers-reduced-motion:reduce){.shot img{transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="../index.html">
+      <img src="../assets/avatar.jpg" alt="" />
+      <span><span class="brand-name">Aman Kumar Gupta</span><span class="brand-sub">&nbsp;/&nbsp;travel journal</span></span>
+    </a>
+    <a class="back" href="../index.html#interests">← Back to portfolio</a>
+  </div>
+</nav>
+
+<main>
+  <header class="hero">
+    <div class="container">
+      <div class="eyebrow"><b>Travel · 02</b><span>Phu Quoc, Vietnam</span><span>June 2026</span></div>
+      <h1>Phu Quoc <span class="slash">/</span> <em>beaches, bright lights</em> &amp; family time.</h1>
+      <p class="lede">An island getaway in southern Vietnam: lazy beach days at the resort, glowing canals and a gondola ride in Grand World, the famous Kiss Bridge over the sea and a day of castles at VinWonders.</p>
+      <div class="facts">
+        <span><b>3</b> chapters</span>
+        <span><b>20</b> photos</span>
+        <span><b>Phu Quoc · Vietnam</b></span>
+        <span><b>Family</b> trip</span>
+      </div>
+      <div class="triptych" data-group>
+        <button class="shot" data-src="../assets/travel/phu-quoc/beach-selfie.jpg" data-cap="Waves and smiles on the beach"><img src="../assets/travel/phu-quoc/beach-selfie.jpg" alt="Father and toddler smiling on the beach" style="object-position:60% 50%" /></button>
+        <button class="shot" data-src="../assets/travel/phu-quoc/gondola-ride.jpg" data-cap="The whole family on a gondola in Grand World"><img src="../assets/travel/phu-quoc/gondola-ride.jpg" alt="Family in a gondola on a canal lit up at night" /></button>
+        <button class="shot" data-src="../assets/travel/phu-quoc/kiss-bridge-couple.jpg" data-cap="Together on the Kiss Bridge"><img src="../assets/travel/phu-quoc/kiss-bridge-couple.jpg" alt="Couple on the Kiss Bridge over the sea" /></button>
+      </div>
+    </div>
+  </header>
+
+  <section class="chapter" style="--c:#1e9aa6">
+    <div class="container">
+      <div class="ch-head">
+        <div class="ch-num"><span>Chapter 01</span><b>Resort &amp; beach</b></div>
+        <div>
+          <h2 class="ch-title">Sea views, sand and slow mornings.</h2>
+          <p class="ch-text">Days by the water: a balcony looking over palms and pools, long walks on soft sand, waves for the little ones and nowhere to be.</p>
+          <div class="chips"><span class="chip">Beach</span><span class="chip">Resort</span><span class="chip">Pool</span></div>
+        </div>
+      </div>
+      <div class="grid" data-group>
+        <figure class="ph wide"><button class="shot" data-src="../assets/travel/phu-quoc/resort-view-selfie.jpg" data-cap="Morning view over the resort and the sea"><img loading="lazy" src="../assets/travel/phu-quoc/resort-view-selfie.jpg" alt="Selfie on a balcony above palm trees, pools and the sea" /></button><figcaption><b>Room with a view</b><span>Resort</span></figcaption></figure>
+        <figure class="ph"><button class="shot" data-src="../assets/travel/phu-quoc/beach-stroll.jpg" data-cap="A walk along the beach"><img loading="lazy" src="../assets/travel/phu-quoc/beach-stroll.jpg" alt="Man standing on a sandy beach with waves behind" /></button><figcaption><b>Beach stroll</b><span>Phu Quoc</span></figcaption></figure>
+        <figure class="ph"><button class="shot" data-src="../assets/travel/phu-quoc/father-son-balcony.jpg" data-cap="Father and son on the balcony"><img loading="lazy" src="../assets/travel/phu-quoc/father-son-balcony.jpg" alt="Father holding his young son on a balcony above the resort" /></button><figcaption><b>Father &amp; son</b><span>Balcony</span></figcaption></figure>
+        <figure class="ph"><button class="shot" data-src="../assets/travel/phu-quoc/beach-selfie.jpg" data-cap="A selfie with the little one by the waves"><img loading="lazy" src="../assets/travel/phu-quoc/beach-selfie.jpg" alt="Father and toddler smiling on the beach" /></button><figcaption><b>Waves &amp; smiles</b><span>Beach</span></figcaption></figure>
+        <figure class="ph"><button class="shot" data-src="../assets/travel/phu-quoc/beach-lounger.jpg" data-cap="Taking over the sun lounger"><img loading="lazy" src="../assets/travel/phu-quoc/beach-lounger.jpg" alt="Toddler sitting on a wooden beach lounger" /></button><figcaption><b>Sun lounger</b><span>Beach club</span></figcaption></figure>
+        <figure class="ph"><button class="shot" data-src="../assets/travel/phu-quoc/balcony-little-one.jpg" data-cap="Exploring the balcony"><img loading="lazy" src="../assets/travel/phu-quoc/balcony-little-one.jpg" alt="Toddler standing on a balcony with sea views" /></button><figcaption><b>Little explorer</b><span>Balcony</span></figcaption></figure>
+        <figure class="ph"><button class="shot" data-src="../assets/travel/phu-quoc/resort-couple-selfie.jpg" data-cap="A couple selfie above the gardens"><img loading="lazy" src="../assets/travel/phu-quoc/resort-couple-selfie.jpg" alt="Couple selfie with resort gardens and sea behind" /></button><figcaption><b>Us two</b><span>Resort</span></figcaption></figure>
+        <figure class="ph"><button class="shot" data-src="../assets/travel/phu-quoc/poolside-steps.jpg" data-cap="Little steps by the pool"><img loading="lazy" src="../assets/travel/phu-quoc/poolside-steps.jpg" alt="Toddler walking beside a swimming pool" /></button><figcaption><b>First steps</b><span>Poolside</span></figcaption></figure>
+        <figure class="ph"><button class="shot" data-src="../assets/travel/phu-quoc/garden-walk.jpg" data-cap="An evening walk through the gardens"><img loading="lazy" src="../assets/travel/phu-quoc/garden-walk.jpg" alt="Woman posing on a path lined with tropical trees" /></button><figcaption><b>Garden walk</b><span>Resort</span></figcaption></figure>
+        <figure class="ph"><button class="shot" data-src="../assets/travel/phu-quoc/hotel-lobby.jpg" data-cap="At the hotel entrance"><img loading="lazy" src="../assets/travel/phu-quoc/hotel-lobby.jpg" alt="Woman standing in front of a glass hotel entrance" /></button><figcaption><b>Grand lobby</b><span>Hotel</span></figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter" style="--c:#c05f3c">
+    <div class="container">
+      <div class="ch-head">
+        <div class="ch-num"><span>Chapter 02</span><b>Grand World</b></div>
+        <div>
+          <h2 class="ch-title">Venice, Vietnamese style.</h2>
+          <p class="ch-text">After dark, Grand World lights up: candy-coloured buildings, canals glowing green and gold, a gondola ride with the whole family and light tunnels to wander through.</p>
+          <div class="chips"><span class="chip">Night canals</span><span class="chip">Gondola ride</span><span class="chip">Light shows</span></div>
+        </div>
+      </div>
+      <div class="grid" data-group>
+        <figure class="ph wide"><button class="shot" data-src="../assets/travel/phu-quoc/gondola-ride.jpg" data-cap="The whole family on a gondola along the canal"><img loading="lazy" src="../assets/travel/phu-quoc/gondola-ride.jpg" alt="Family in a gondola on a canal lit up at night" /></button><figcaption><b>Gondola ride</b><span>Grand World</span></figcaption></figure>
+        <figure class="ph"><button class="shot" data-src="../assets/travel/phu-quoc/grand-world-night.jpg" data-cap="Canal-side at night"><img loading="lazy" src="../assets/travel/phu-quoc/grand-world-night.jpg" alt="Boy standing on a balcony above a lit-up canal" /></button><figcaption><b>Canal lights</b><span>Grand World</span></figcaption></figure>
+        <figure class="ph"><button class="shot" data-src="../assets/travel/phu-quoc/canal-night-walk.jpg" data-cap="A walk along the glowing canal"><img loading="lazy" src="../assets/travel/phu-quoc/canal-night-walk.jpg" alt="Woman by the railing of a canal at night" /></button><figcaption><b>Evening walk</b><span>Grand World</span></figcaption></figure>
+        <figure class="ph"><button class="shot" data-src="../assets/travel/phu-quoc/canal-couple.jpg" data-cap="Together by the canal bridge"><img loading="lazy" src="../assets/travel/phu-quoc/canal-couple.jpg" alt="Couple standing by a canal with colourful buildings behind" /></button><figcaption><b>By the bridge</b><span>Grand World</span></figcaption></figure>
+        <figure class="ph"><button class="shot" data-src="../assets/travel/phu-quoc/grand-world-facade.jpg" data-cap="In front of a striking glass facade"><img loading="lazy" src="../assets/travel/phu-quoc/grand-world-facade.jpg" alt="Woman standing in front of a red glass building at night" /></button><figcaption><b>Colour &amp; glass</b><span>Grand World</span></figcaption></figure>
+        <figure class="ph"><button class="shot" data-src="../assets/travel/phu-quoc/light-arches.jpg" data-cap="Walking through the arches of light"><img loading="lazy" src="../assets/travel/phu-quoc/light-arches.jpg" alt="Boy standing under glowing light arches at night" /></button><figcaption><b>Light tunnel</b><span>Grand World</span></figcaption></figure>
+        <figure class="ph"><button class="shot" data-src="../assets/travel/phu-quoc/grand-world-selfie.jpg" data-cap="Night-time selfie in shades"><img loading="lazy" src="../assets/travel/phu-quoc/grand-world-selfie.jpg" alt="Boy in sunglasses taking a selfie at night" /></button><figcaption><b>Cool shades</b><span>Grand World</span></figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter" style="--c:#7a5ea8">
+    <div class="container">
+      <div class="ch-head">
+        <div class="ch-num"><span>Chapter 03</span><b>Sunset Town &amp; VinWonders</b></div>
+        <div>
+          <h2 class="ch-title">Bridges that almost kiss.</h2>
+          <p class="ch-text">In the south of the island, the famous Kiss Bridge reaches out over the sea and stops just short of touching, then a day of castles and rides at VinWonders.</p>
+          <div class="chips"><span class="chip">Kiss Bridge</span><span class="chip">Sunset Town</span><span class="chip">VinWonders</span></div>
+        </div>
+      </div>
+      <div class="grid" data-group>
+        <figure class="ph"><button class="shot" data-src="../assets/travel/phu-quoc/kiss-bridge-couple.jpg" data-cap="Together on the Kiss Bridge"><img loading="lazy" src="../assets/travel/phu-quoc/kiss-bridge-couple.jpg" alt="Couple standing at the railing of the Kiss Bridge over the sea" /></button><figcaption><b>Kiss Bridge</b><span>Sunset Town</span></figcaption></figure>
+        <figure class="ph"><button class="shot" data-src="../assets/travel/phu-quoc/kiss-bridge-boys.jpg" data-cap="A handshake on the Kiss Bridge"><img loading="lazy" src="../assets/travel/phu-quoc/kiss-bridge-boys.jpg" alt="Father and son shaking hands at the bridge railing" /></button><figcaption><b>Partners in crime</b><span>Kiss Bridge</span></figcaption></figure>
+        <figure class="ph"><button class="shot" data-src="../assets/travel/phu-quoc/vinwonders-castle.jpg" data-cap="At the castle gates, VinWonders"><img loading="lazy" src="../assets/travel/phu-quoc/vinwonders-castle.jpg" alt="Couple standing in front of a fairytale castle gate" /></button><figcaption><b>Castle gates</b><span>VinWonders</span></figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="outro">
+    <div class="container">
+      <p>Sun by day, lights by night &mdash; Phu Quoc gave us <em>a week of beaches and bright canals</em> and memories our family will keep.</p>
+      <a class="back" href="../index.html#interests">← Back to portfolio</a>
+    </div>
+  </section>
+</main>
+
+<div class="footer">
+  <span>Travel journal · Phu Quoc, Vietnam</span>
+  <a href="../index.html">© 2026 Aman Kumar Gupta · amankgupta.com</a>
+</div>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button class="close" aria-label="Close">✕</button>
+  <button class="prev" aria-label="Previous photo">←</button>
+  <img alt="" />
+  <button class="next" aria-label="Next photo">→</button>
+  <div class="lb-cap"></div>
+</div>
+
+<script>
+(function(){
+  var shots=[].slice.call(document.querySelectorAll('.shot'));
+  var lb=document.getElementById('lb'),img=lb.querySelector('img'),cap=lb.querySelector('.lb-cap');
+  var i=0,last=null;
+  function show(n){
+    i=(n+shots.length)%shots.length;
+    var s=shots[i];
+    img.src=s.dataset.src;img.alt=s.querySelector('img').alt;
+    cap.innerHTML='<b>'+(i+1)+' / '+shots.length+'</b> &nbsp;·&nbsp; '+s.dataset.cap;
+  }
+  function open(n){last=document.activeElement;show(n);lb.classList.add('open');document.body.style.overflow='hidden';lb.querySelector('.close').focus();}
+  function close(){lb.classList.remove('open');document.body.style.overflow='';if(last)last.focus();}
+  shots.forEach(function(s,n){s.addEventListener('click',function(){open(n)})});
+  lb.querySelector('.close').onclick=close;
+  lb.querySelector('.prev').onclick=function(e){e.stopPropagation();show(i-1)};
+  lb.querySelector('.next').onclick=function(e){e.stopPropagation();show(i+1)};
+  lb.addEventListener('click',function(e){if(e.target===lb)close()});
+  document.addEventListener('keydown',function(e){
+    if(!lb.classList.contains('open'))return;
+    if(e.key==='Escape')close();
+    if(e.key==='ArrowLeft')show(i-1);
+    if(e.key==='ArrowRight')show(i+1);
+  });
+  var x0=null;
+  lb.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
+  lb.addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40)show(i+(dx<0?1:-1));x0=null});
+})();
+</script>
+</body>
+</html>
