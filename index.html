@@ -409,6 +409,12 @@
   .hobby-body p{margin:0;color:var(--muted);font-size:14.5px;line-height:1.6}
   .hobby-meta{margin-top:auto;display:flex;gap:6px;flex-wrap:wrap;padding-top:6px}
 
+  .trip-link{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:8px;padding:12px 14px;border:1px solid var(--line);border-radius:8px;text-decoration:none;color:var(--ink);font-weight:500;background:var(--surface);transition:border-color .25s,color .25s}
+  .trip-link .trip-k{display:block;font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:400;margin-bottom:2px}
+  .trip-link .trip-arrow{font-family:var(--mono-font);transition:transform .25s}
+  .trip-link:hover{border-color:#4f8f5a;color:#4f8f5a}
+  .trip-link:hover .trip-arrow{transform:translateX(4px)}
+
   /* cricket scene */
   .sc-cricket{background:radial-gradient(120% 90% at 50% 120%, color-mix(in oklab, var(--accent) 26%, var(--surface)) 0%, var(--surface) 60%)}
   .sc-cricket .field-line{position:absolute;left:0;right:0;bottom:34px;height:1px;background:color-mix(in oklab, var(--ink) 18%, transparent)}
@@ -867,6 +873,7 @@
             <h3>Tourism &amp; travel</h3>
             <p>I&rsquo;m happiest exploring somewhere new — new cities, cultures, cuisines and landscapes. Living in Singapore puts the whole of Asia within reach, and every trip brings back a fresh perspective I carry into how I work and think.</p>
             <div class="hobby-meta"><span class="chip">Exploring Asia</span><span class="chip">Culture &amp; food</span><span class="chip">Photography</span></div>
+            <a class="trip-link" href="travel/chiang-mai.html"><span><span class="mono trip-k">Latest trip</span>Chiang Mai, Thailand</span><span class="trip-arrow" aria-hidden="true">→</span></a>
           </div>
         </article>
       </div>
